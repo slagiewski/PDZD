@@ -61,7 +61,7 @@ class GeoService:
 
     def save_geo_data(self, geo_data_list, geo_data_file_name):
         if geo_data_list:
-            with open(geo_data_file_name, 'a+') as csv_file:
+            with open(geo_data_file_name, 'a+', encoding='utf-8') as csv_file:
                 wr = csv.writer(csv_file, delimiter=self.CSV_DELIMETER)
                 for geo_data in geo_data_list:
                     wr.writerow(list(geo_data))

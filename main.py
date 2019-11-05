@@ -4,16 +4,24 @@ import json
 from convert_to_csv import convert_to_csv
 from geo_service import GeoService
 import warnings
+import time
 
 warnings.filterwarnings("ignore")
 
 
 def fetch_and_save_geo_data(cities, geo_data_file_name):
-    geo_data = geo_service.fetch_geo_data(
-        cities)
+    counter = 0
+    while counter < len(cities):
+        if counter > 0:
+            print("Trying again after 30s...")
+            time.sleep(30)
+        geo_data = geo_service.fetch_geo_data(
+            cities)
 
-    print(f"Received geo data about {len(geo_data)} cities. Saving ...")
-    geo_service.save_geo_data(geo_data, geo_data_file_name)
+        print(f"Received geo data about {len(geo_data)} cities. Saving...")
+        geo_service.save_geo_data(geo_data, geo_data_file_name)
+
+        counter += len(geo_data)
 
 
 geo_service = GeoService()
@@ -23,10 +31,10 @@ json_dataset_file_name = f"{dataset_file_name}.json"
 csv_dataset_file_name = f"{dataset_file_name}.csv"
 geo_data_file_name = "geo_data.csv"
 
-print("Reading business dataset...")
+print("Checking if business dataset exists...")
 if not os.path.exists(json_dataset_file_name):
     print(
-        f"dataset doesn't exist! [path: {json_dataset_file_name}] Exiting.")
+        f"Dataset doesn't exist! [path: {json_dataset_file_name}] Exiting.")
     pass
 
 print("Checking for converted dataset file (CSV)...")
@@ -59,7 +67,7 @@ else:
 
     if last_item_index != len(unique_cities) - 1:
         print(
-            f"Loaded geo data file is incomplete. Last item index: {last_item_index} out of {len(unique_cities) - 1}")
+            f"Loaded geo data file is incomplete. Last item index: {last_item_index} out of {len(unique_cities) - 1}. Getting centre location for the rest of the cities...")
         fetch_and_save_geo_data(
             unique_cities[last_item_index + 1:], geo_data_file_name)
     else:
