@@ -1,108 +1,162 @@
-110 las vegas,,
-agincourt,,
-ahwahtukee,,
-ahwatukee,,
-ahwatukee foothills village,,
-airdrie,55.8657845,-3.9795866
-ajax,43.8503740,-79.0246580
-akron,41.0830640,-81.5184850
-alberta,58.4634453,-114.5341510
-alburg,53.6309457,-109.2048274
-alburgh,,
-aliquippa,40.6102386,-80.2677260
-allegheny,41.5616358,-79.5344689
-allentown,40.6022059,-75.4712794
-allison park,,
-ambridge,43.3855479,-80.3113582
-amherst,41.3978217,-82.2223775
-ange-gardien,,
-anjou,47.4683081,-0.4932941
-ansnorveldt,,
-anthem,,
-antioch,38.0049214,-121.8057890
-apache junction,33.4150484,-111.5495439
-apache trail,,
-arizona,,
-arnold,53.0052605,-1.1255532
-arrowhead,34.2489684,-117.1913321
-ashburn,46.6732766,-90.8949055
-aspinwall,,
-auburn,32.6098566,-85.4807825
-auburn township,,
-auburn twp,,
-aurora,39.7294320,-104.8319196
-austin,30.2711286,-97.7436995
-avalon,33.3422100,-118.3272612
-avon,44.3080251,8.4810315
-avon lake,41.5100290,-82.0185891
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-az,47.0702563,15.4385716
-baie-d'urfe,,
-baie-d'urfé,45.4174258,-73.9153643
-bainbridge,30.9038252,-84.5754768
-bainbridge township,,
-bakerstown,,
-baldwin,34.0854739,-117.9611761
-ballantyne,,
-balzac,,
-banksville,,
-barberton,41.0128330,-81.6051221
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-az,47.0702563,15.4385716
-baie-d'urfe,,
-baie-d'urfé,45.4174258,-73.9153643
-bainbridge,30.9038252,-84.5754768
-bainbridge township,,
-bakerstown,,
-baldwin,34.0854739,-117.9611761
-ballantyne,,
-balzac,,
-avon lake,41.5100290,-82.0185891
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-avon lake,41.5100290,-82.0185891
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-az,47.0702563,15.4385716
-baie-d'urfe,,
-baie-d'urfé,45.4174258,-73.9153643
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-az,47.0702563,15.4385716
-avon lake,41.5100290,-82.0185891
-avon lake,41.5100290,-82.0185891
-avon lake,41.5100290,-82.0185891
-avondale,33.4354989,-112.3495572
-az,47.0702563,15.4385716
-baie-d'urfe,,
-baie-d'urfé,45.4174258,-73.9153643
-bainbridge,30.9038252,-84.5754768
-bainbridge township,,
-bakerstown,,
-baldwin,34.0854739,-117.9611761
-ballantyne,,
-balzac,,
-banksville,,
-barberton,41.0128330,-81.6051221
-bath,51.3813864,-2.3596963
-bay village,41.4849875,-81.9208320
-beachwood,41.4644980,-81.5087320
-beachwood ,,
-beaconsfield,45.4289766,-73.8654387
-beauharnois,45.3139778,-73.8758340
-bedford,44.7303901,-63.6582365
-bedford heights,,
-bedford hts,,
-bedford hts.,,
-beeton,44.0789530,-79.7844310
-belle vernon,,
-belleville,44.1633264,-77.3852556
-bellevue,47.6144219,-122.1923372
-bellvue,,
-belmont,40.3583264,-7.3512742
-beloeil,,
-beltline,,
-belÅ“il,50.5479197,3.7361279
-belÅ“il,50.5479197,3.7361279
+110 las vegas,,
+
+agincourt,,
+
+ahwahtukee,,
+
+ahwatukee,,
+
+ahwatukee foothills village,,
+
+airdrie,55.8657845,-3.9795866
+
+ajax,43.8503740,-79.0246580
+
+akron,41.0830640,-81.5184850
+
+alberta,58.4634453,-114.5341510
+
+alburg,53.6309457,-109.2048274
+
+alburgh,,
+
+aliquippa,40.6102386,-80.2677260
+
+allegheny,41.5616358,-79.5344689
+
+allentown,40.6022059,-75.4712794
+
+allison park,,
+
+ambridge,43.3855479,-80.3113582
+
+amherst,41.3978217,-82.2223775
+
+ange-gardien,,
+
+anjou,47.4683081,-0.4932941
+
+ansnorveldt,,
+
+anthem,,
+
+antioch,38.0049214,-121.8057890
+
+apache junction,33.4150484,-111.5495439
+
+apache trail,,
+
+arizona,,
+
+arnold,53.0052605,-1.1255532
+
+arrowhead,34.2489684,-117.1913321
+
+ashburn,46.6732766,-90.8949055
+
+aspinwall,,
+
+auburn,32.6098566,-85.4807825
+
+auburn township,,
+
+auburn twp,,
+
+aurora,39.7294320,-104.8319196
+
+austin,30.2711286,-97.7436995
+
+avalon,33.3422100,-118.3272612
+
+avon,44.3080251,8.4810315
+
+avon lake,41.5100290,-82.0185891
+
+avondale,33.4354989,-112.3495572
+
+az,47.0702563,15.4385716
+
+baie-d'urfe,,
+
+baie-d'urfï¿½,45.4174258,-73.9153643
+
+bainbridge,30.9038252,-84.5754768
+
+bainbridge township,,
+
+bakerstown,,
+
+baldwin,34.0854739,-117.9611761
+
+ballantyne,,
+
+balzac,,
+
+banksville,,
+
+barberton,41.0128330,-81.6051221
+
+bath,51.3813864,-2.3596963
+
+bay village,41.4849875,-81.9208320
+
+beachwood,41.4644980,-81.5087320
+
+beachwood ,,
+
+beaconsfield,45.4289766,-73.8654387
+
+beauharnois,45.3139778,-73.8758340
+
+bedford,44.7303901,-63.6582365
+
+bedford heights,,
+
+bedford hts,,
+
+bedford hts.,,
+
+beeton,44.0789530,-79.7844310
+
+belle vernon,,
+
+belleville,44.1633264,-77.3852556
+
+bellevue,47.6144219,-122.1923372
+
+bellvue,,
+
+belmont,40.3583264,-7.3512742
+
+beloeil,,
+
+beltline,,
+
+belÅ“il,50.5479197,3.7361279
+
+ben avon,,
+
+bentleyville,,
+
+berea,37.5686940,-84.2963224
+
+berry,45.2555625,-74.1316153
+
+bethel park,40.3275697,-80.0394977
+
+black earth,,
+
+black rock city,,
+
+blainville,45.6793200,-73.8761900
+
+blakeney,,
+
+blawnox,,
+
+bloomfield,40.7516884,-92.4149074
+
+blue diamond,,
+
+blue mounds,,
+

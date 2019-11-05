@@ -16,12 +16,14 @@ def fetch_and_save_geo_data(cities, geo_data_file_name):
             print("Trying again after 30s...")
             time.sleep(30)
         geo_data = geo_service.fetch_geo_data(
-            cities)
+            cities[counter + 1:])
 
         print(f"Received geo data about {len(geo_data)} cities. Saving...")
         geo_service.save_geo_data(geo_data, geo_data_file_name)
 
         counter += len(geo_data)
+
+        print(f"Cities remaining to process: {len(cities) - counter}")
 
 
 geo_service = GeoService()
