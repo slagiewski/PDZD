@@ -1,0 +1,6 @@
+create 'business', 'identity', 'location', 'reviews', 'attributes', 'categories', 'hours'
+create 'review', 'refs', 'content', 'votes'
+create 'user', 'data', 'votes_sent', 'compliments_received'
+create 'check_in', 'data'
+create 'tip', 'refs', 'data'
+create 'photo', 'data', 'refs'
