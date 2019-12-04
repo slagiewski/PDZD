@@ -24,6 +24,12 @@ create table business_category (
     category_id integer references category(id)
 );
 
+create table business_photo_category (
+    business_id varchar(32) references business(business_id),
+    category text,
+    photo_count integer
+)
+
 create table business_hours (
     business_id varchar(32) references business(business_id),
     day_of_week varchar(10),
