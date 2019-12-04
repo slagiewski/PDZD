@@ -1,3 +1,15 @@
+drop table if exists business cascade;
+drop table if exists category cascade;
+drop table if exists business_category cascade;
+drop table if exists business_photo_category cascade;
+drop table if exists business_hours cascade;
+drop table if exists "user" cascade;
+drop table if exists friend cascade;
+drop table if exists photo cascade;
+drop table if exists review cascade;
+drop table if exists tip cascade;
+drop table if exists checkin cascade;
+
 create table business (
     business_id varchar(32) primary key,
     name text,
@@ -20,7 +32,7 @@ create table category (
 );
 
 create table business_category (
-    business_id varchar(32) references business(business_id)
+    business_id varchar(32) references business(business_id),
     category_id integer references category(id)
 );
 
@@ -28,7 +40,7 @@ create table business_photo_category (
     business_id varchar(32) references business(business_id),
     category text,
     photo_count integer
-)
+);
 
 create table business_hours (
     business_id varchar(32) references business(business_id),
@@ -42,7 +54,7 @@ create table business_hours (
 
 -----------------------------------------------
 
-create table user (
+create table "user" (
     user_id varchar(32) primary key,
     review_count integer,
     yelping_since timestamp,
@@ -59,10 +71,10 @@ create table friend (
 
 -----------------------------------------------
 
-create table photo ()
+create table photo (
     photo_id varchar(32) primary key,
-    business_id varchar(32) references business(id),
-    caption text
+    business_id varchar(32) references business(business_id),
+    caption text,
     category text
 );
 
@@ -84,11 +96,11 @@ create table review (
 create table tip (
     tip_id serial primary key,
     user_id varchar(32),
-    business_id varchar(32) references business(business_id)
+    business_id varchar(32) references business(business_id),
     text text,
     date timestamp,
-    compliment_count integer,
-)
+    compliment_count integer
+);
 ------
 create table checkin (
     id serial primary key,
