@@ -3,6 +3,7 @@ import os
 import json
 from convert_to_csv import convert_to_csv
 from geo_service import GeoService
+from geo_service import GeoDataDTO
 import warnings
 import time
 
@@ -26,12 +27,36 @@ def fetch_and_save_geo_data(cities, geo_data_file_name):
         print(f"Cities remaining to process: {len(cities) - counter}")
 
 
+def fetch_and_save_valid_city_names(geo_dtos, city_names_file_name):
+    counter = 0
+    while counter < len(geo_dtos):
+        if counter > 0:
+            print("Trying again after 30s...")
+            time.sleep(30)
+
+        valid_city_names = geo_service.get_valid_city_names(
+            geo_dtos[counter:])
+
+        print(
+            f"Received city names of {len(valid_city_names)} cities. Saving...")
+        geo_service.save_city_names(
+            list(map(lambda c: {"city": c['geo_data'].city,
+                                "found_city": c['valid_city']},
+                     valid_city_names)),
+            city_names_file_name)
+
+        counter += len(valid_city_names)
+
+        print(f'Cities remaining to process: {len(geo_dtos) - counter}')
+
+
 geo_service = GeoService()
 
 dataset_file_name = "business"
 json_dataset_file_name = f"{dataset_file_name}.json"
 csv_dataset_file_name = f"{dataset_file_name}.csv"
 geo_data_file_name = "geo_data.csv"
+city_names_file_name = "city_names.csv"
 
 print("Checking if business dataset exists...")
 if not os.path.exists(json_dataset_file_name):
@@ -49,6 +74,15 @@ else:
 
 print("Loading csv to data frame...")
 data_frame = pandas.read_csv(csv_dataset_file_name)
+
+print("Getting city names from data frame...")
+city_names = list(map(
+    lambda x: GeoDataDTO(x[0], x[1], x[2]),
+    data_frame.filter(items=['city', 'latitude', 'longitude']).values))
+
+print("Getting valid city names based on ones latlon")
+fetch_and_save_valid_city_names(city_names, city_names_file_name)
+
 
 print("Getting cities...")
 grouped_df = data_frame.groupby(data_frame["city"].str.lower())
