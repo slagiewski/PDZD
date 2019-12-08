@@ -1,327 +1,246 @@
-110 las vegas,,
-
-agincourt,,
-
-ahwahtukee,,
-
-ahwatukee,,
-
-ahwatukee foothills village,,
-
-airdrie,55.8657845,-3.9795866
-
-ajax,43.8503740,-79.0246580
-
-akron,41.0830640,-81.5184850
-
-alberta,58.4634453,-114.5341510
-
-alburg,53.6309457,-109.2048274
-
-alburgh,,
-
-aliquippa,40.6102386,-80.2677260
-
-allegheny,41.5616358,-79.5344689
-
-allentown,40.6022059,-75.4712794
-
-allison park,,
-
-ambridge,43.3855479,-80.3113582
-
-amherst,41.3978217,-82.2223775
-
-ange-gardien,,
-
-anjou,47.4683081,-0.4932941
-
-ansnorveldt,,
-
-anthem,,
-
-antioch,38.0049214,-121.8057890
-
-apache junction,33.4150484,-111.5495439
-
-apache trail,,
-
-arizona,,
-
-arnold,53.0052605,-1.1255532
-
-arrowhead,34.2489684,-117.1913321
-
-ashburn,46.6732766,-90.8949055
-
-aspinwall,,
-
-auburn,32.6098566,-85.4807825
-
-auburn township,,
-
-auburn twp,,
-
-aurora,39.7294320,-104.8319196
-
-austin,30.2711286,-97.7436995
-
-avalon,33.3422100,-118.3272612
-
-avon,44.3080251,8.4810315
-
-avon lake,41.5100290,-82.0185891
-
-avondale,33.4354989,-112.3495572
-
-az,47.0702563,15.4385716
-
-baie-d'urfe,,
-
-baie-d'urf�,45.4174258,-73.9153643
-
-bainbridge,30.9038252,-84.5754768
-
-bainbridge township,,
-
-bakerstown,,
-
-baldwin,34.0854739,-117.9611761
-
-ballantyne,,
-
-balzac,,
-
-banksville,,
-
-barberton,41.0128330,-81.6051221
-
-bath,51.3813864,-2.3596963
-
-bay village,41.4849875,-81.9208320
-
-beachwood,41.4644980,-81.5087320
-
-beachwood ,,
-
-beaconsfield,45.4289766,-73.8654387
-
-beauharnois,45.3139778,-73.8758340
-
-bedford,44.7303901,-63.6582365
-
-bedford heights,,
-
-bedford hts,,
-
-bedford hts.,,
-
-beeton,44.0789530,-79.7844310
-
-belle vernon,,
-
-belleville,44.1633264,-77.3852556
-
-bellevue,47.6144219,-122.1923372
-
-bellvue,,
-
-belmont,40.3583264,-7.3512742
-
-beloeil,,
-
-beltline,,
-
-belœil,50.5479197,3.7361279
-
-ben avon,,
-
-bentleyville,,
-
-berea,37.5686940,-84.2963224
-
-berry,45.2555625,-74.1316153
-
-bethel park,40.3275697,-80.0394977
-
-black earth,,
-
-black rock city,,
-
-blainville,45.6793200,-73.8761900
-
-blakeney,,
-
-blawnox,,
-
-bloomfield,40.7516884,-92.4149074
-
-blue diamond,,
-
-blue mounds,,
-
+agincourt,48.7323472,6.2363840
+ahwahtukee,,
+ahwatukee,,
+ahwatukee foothills village,,
+airdrie,51.2859700,-114.0106200
+ajax,31.8765528,-93.3898959
+akron,40.6307810,-111.8552118
+alberta,45.5732488,-96.0476086
+alburg,44.7772765,-74.5815683
+alburgh,44.9764203,-73.3003414
+aliquippa,40.6102386,-80.2677260
+allegheny,35.9884389,-82.6673630
+allentown,40.6022059,-75.4712794
+allison park,40.2295150,-80.2422817
+ambridge,46.6366071,-92.0704688
+amherst,45.7380069,-97.9212165
+ange-gardien,45.3540750,-72.9358290
+anjou,45.3462000,4.8814900
+ansnorveldt,,
+anthem,33.8613328,-112.1254665
+antioch,38.0049214,-121.8057890
+apache junction,33.4150484,-111.5495439
+apache trail,,
+arizona,30.7896348,-95.4679978
+arnold,53.0052605,-1.1255532
+arrowhead,50.7000000,-117.9166670
+ashburn,39.5448800,-91.1695349
+aspinwall,41.9120574,-95.1354782
+auburn,42.7921493,-111.0032647
+auburn township,,
+auburn twp,,
+aurora,64.8569444,-147.7586111
+austin,49.9487121,-98.9365049
+avalon,33.3422100,-118.3272612
+avon,50.7907786,-1.7952248
+avon lake,41.5219344,-93.5010471
+avondale,-32.1150000,149.3344444
+az,-5.1771526,-80.6114745
+baie-d'urfe,,
+baie-d'urfé,45.4174258,-73.9153643
+bainbridge,54.3075892,-2.1029831
+bainbridge township,,
+bakerstown,29.3480313,-81.4914606
+baldwin,44.9666323,-92.3743576
+ballantyne,,
+balzac,51.2156111,-114.0045579
+banksville,41.1412071,-73.6395723
+barberton,41.0128330,-81.6051221
+bath,51.3813864,-2.3596963
+bay village,35.4498053,-90.6759435
+beachwood,30.8599028,-91.3687236
+beachwood ,,
+beaconsfield,45.4289766,-73.8654387
+beauharnois,45.3139778,-73.8758340
+bedford,52.1363806,-0.4675041
+bedford heights,41.4143826,-81.5061146
+bedford hts,,
+bedford hts.,,
+beeton,44.0789530,-79.7844310
+belle vernon,40.9264451,-83.2018628
+belleville,44.1633264,-77.3852556
+bellevue,47.8423879,0.2612598
+bellvue,35.9009104,-96.3872302
+belmont,53.6393995,-2.4961438
+beloeil,,
+beltline,,
+belœil,50.5479197,3.7361279
+ben avon,40.5081241,-80.0831114
+bentleyville,32.9562329,-86.2602508
+berea,33.3392835,-91.7006822
+berry,-34.7753238,150.6977220
+bethel park,47.4733735,-122.4837235
+black earth,43.1378765,-89.7482978
+black rock city,40.7855563,-119.2064834
+blainville,45.6793200,-73.8761900
+blakeney,33.8653855,-95.0846705
+blawnox,40.4934017,-79.8606053
+bloomfield,38.3138050,-122.8511046
+blue diamond,36.0463649,-115.4038976
+blue mounds,43.0174968,-89.8323454
+bois-des-filion,45.6713243,-73.7562419
 boisbriand,45.6130352,-73.8386827
 bolton,53.5782863,-2.4300367
-bond head,,
-boston,42.3602534,-71.0582912
-boston heights,,
+bond head,44.0889075,-79.6774655
+boston,52.9770408,-0.0239836
+boston heights,41.2647780,-81.5131710
 boucherville,45.6050197,-73.4526144
 boulder city,35.9787638,-114.8337739
-braddock,,
+braddock,46.5644311,-100.0909421
 bradford,53.7944229,-1.7519186
 bradford west gwillimbury,,
 bradfordwoods,,
-brampton,43.6858146,-79.7599337
-bratenahl,,
+brampton,52.3239155,-0.2331217
+bratenahl,41.5445409,-81.6223230
 brecksville,41.3197763,-81.6267904
 brentwood,37.9317766,-121.6960266
-bridgeville,,
-broadlands,39.0232515,-77.5133230
+bridgeville,40.4695290,-123.7991450
+broadlands,39.9086455,-87.9942016
 broadview heights,41.3139426,-81.6851271
 broadview hts,,
-brook park,41.3983838,-81.8045788
-brooklin,42.3317642,-71.1211635
-brookline,42.3317642,-71.1211635
+brook park,45.9493991,-93.0754888
+brooklin,36.0503385,-86.6147180
+brookline,37.1632152,-93.4204818
 brooklyn,-33.5481636,151.2176587
-brooklyn heights,,
+brooklyn heights,37.1733913,-94.3831353
 brooklyn hts.,,
 brookpark,,
 brossard,45.4554829,-73.4678904
-brownsburg-chatham,,
-brunswick,40.4862174,-74.4518173
+brownsburg-chatham,45.6765160,-74.4046061
+brunswick,45.7888498,-93.2757796
 brunswick hills,,
-buckeye,33.3702748,-112.5838673
+buckeye,39.7954415,-121.3041304
 buckeye - shaker,,
-buena vista,38.8422178,-106.1311288
-burlington,43.3248924,-79.7966835
-burton,52.8027420,-1.6299170
-bury,51.2800275,1.0802533
+buena vista,40.0554369,-121.8674837
+burlington,49.7510610,-56.0180249
+burton,51.5132494,-2.2681726
+bury,49.3132772,2.3439338
 c las vegas,,
 caledon,-34.2300000,19.4283330
-caledon east,,
+caledon east,43.8700931,-79.8670564
 caledon village,,
-calgary,51.0534234,-114.0625892
+calgary,31.6174004,-94.1193622
 candiac,45.3867947,-73.5163824
 canonsburd,,
-canonsburg,,
+canonsburg,40.2625702,-80.1872797
 carefree,33.8222752,-111.9175949
-carnegie,,
-carson,39.1648969,-119.7665825
-castle shannon,,
+carnegie,35.1036699,-98.6036736
+carson,33.8322043,-118.2517547
+castle shannon,40.3647917,-80.0222753
 catawba springs,,
 cave creek,33.8333716,-111.9507042
 cave creek road,,
-cecil,40.3200519,-80.2153556
+cecil,45.6191549,-119.9591157
 centennial hills,,
 central,34.7257424,-82.7804999
-central city,41.1158475,-98.0017249
+central city,42.2038829,-91.5240561
 central city village,,
 central henderson,,
-central oakland,,
-centre island,,
-chagrin falls,,
-chambly,45.4473898,-73.2932002
+central oakland,40.4386225,-79.9546577
+centre island,40.9017651,-73.5198453
+chagrin falls,41.4365890,-81.3855058
+chambly,49.1662774,2.2444986
 champaign,40.1164205,-88.2433829
-champlain,,
-chander,24.7119436,78.1372743
-chandler,33.3062223,-111.8413317
+champlain,38.0134681,-76.9927481
+chander,30.7666333,74.8560140
+chandler,40.9238338,-111.8735491
 chandler-gilbert,,
-char,50.4120332,4.4436244
-chardon,41.5824660,-81.2033400
+char,45.9554252,3.4069458
+chardon,39.6547237,-101.0571007
 chargrin falls,,
-charlemagne,,
-charlotte,35.2270869,-80.8431268
-charlotte ,18.3411370,-64.9327890
+charlemagne,18.4176038,-72.8337494
+charlotte,28.8612025,-98.7068057
+charlotte ,,
 charlottte,,
 chatauguay,,
-chateau,13.2896437,-61.2413945
-chateauguay,,
-chattanooga,35.0456297,-85.3096801
-chertsey,51.3922960,-0.5038294
-chesterland,,
+chateau,45.6241829,7.6220727
+chateauguay,43.6603461,-72.6948221
+chattanooga,34.4228593,-98.6564522
+chertsey,46.0727975,-73.8886371
+chesterland,41.5221830,-81.3379190
 chestermere,51.0448480,-113.8211060
-cheswick,,
+cheswick,55.7128354,-1.9538311
 "chomedey, laval",,
 church cove,,
 châteauguay,45.3619066,-73.7524319
 citibank,,
-city center,,
-clairton,,
-claremont,43.3771050,-72.3470310
-clark,36.5277607,-87.3588703
-clarkson,41.7267357,-97.1223943
+city center,21.3321542,-158.0797230
+clairton,40.2922938,-79.8817181
+claremont,34.0966764,-117.7197785
+clark,39.5640019,-119.4817557
+clarkson,43.2115815,-112.4185908
 cleveland,41.5051613,-81.6934446
-cleveland heigh,41.5200518,-81.5562350
-cleveland height,41.5200518,-81.5562350
-cleveland heights,41.5200518,-81.5562350
+cleveland heigh,,
+cleveland height,,
+cleveland heights,31.5862849,-84.1740748
 cleveland hghts.,,
 cleveland hts.,,
 "cleveland, oh",,
-clinton,41.1396708,-112.0505108
-closter,,
-clover,35.1112886,-81.2265808
+clinton,51.0916698,-121.5865244
+closter,41.8869528,-97.8892270
+clover,40.3368885,-112.4613423
 columbia sta,,
-columbia station,,
-columbus,41.4296258,-97.3684294
+columbia station,41.3131066,-81.9468057
+columbus,31.8327963,-107.6402272
 communauté-urbaine-de-montréal,,
 concord,43.2071780,-71.5374760
 concord mills,,
 concord township,,
 concord twp,,
-cooksville,,
-copley,,
-coraopolis,,
-cornelius,35.4817982,-80.8589501
+cooksville,42.8352818,-89.2406719
+copley,53.4862815,-2.0414044
+coraopolis,40.5184013,-80.1667247
+cornelius,45.5198001,-123.0556202
 cote saint luc,,
 cote saint-luc,,
 cote-saint-luc,,
-coteau-du-lac,,
-cottage grove,44.8277446,-92.9438218
-crafton,,
+coteau-du-lac,45.2963957,-74.1782005
+cottage grove,41.6026230,-123.5056152
+crafton,34.0630688,-117.1217021
 cramerton,35.2387504,-81.0750757
-cranberry township,41.3530202,-79.6788415
+cranberry township,,
 cranberry twp,,
 creighton,42.4666706,-97.9061783
-crescent,-31.1900000,152.9761111
-cross plains,,
-crouse,,
+crescent,46.6432318,-116.4254271
+cross plains,32.1262459,-99.1654444
+crouse,35.4209672,-81.3053602
 cuddy,,
 cuyahoga falls,41.1348213,-81.4848086
 cuyahoga fls,,
-cuyahoga heights,,
+cuyahoga heights,41.4271001,-81.6414489
 cuyohoga falls,,
 côte saint-luc,,
 côte-saint-luc,45.4772716,-73.6637524
 dallas,32.7762719,-96.7968559
-dane,15.9753832,120.5670011
+dane,36.2169817,-98.6195284
 darlington,54.5242081,-1.5555812
 davidson,51.2647972,-105.9845963
-de forest,,
+de forest,47.4599283,-92.5793506
 de l'eglise,,
-de winton,,
-decatur,34.6060203,-86.9838165
-deerfield,26.3183420,-80.0996306
+de winton,50.8235916,-114.0174396
+decatur,48.5003792,-122.8196218
+deerfield,40.6768908,-112.0238285
 deforest,43.2477691,-89.3437277
 delson,45.3749509,-73.5413403
-denver,39.7392364,-104.9848623
-desert ridge,,
+denver,45.9982143,-116.2359789
+desert ridge,33.6342082,-111.9315344
 deux-montagnes,45.5372581,-73.9043321
 deux-montagnes regional county municipality,,
-dewey,,
+dewey,45.7771480,-112.8550332
 division no. 6,,
 dollard-des ormeaux,45.4842300,-73.8064547
 dollard-des-ormeaux,,
-don mills,,
-dormont,,
+don mills,43.7371780,-79.3434514
+dormont,40.3959026,-80.0331092
 dorval,45.4453082,-73.7510888
-down,33.9422150,-118.1235646
-downsview,,
-downtown,36.1135071,-97.0586215
+down,53.5978278,-7.3516669
+downsview,43.7266659,-79.4820065
+downtown,-7.2621185,72.3760572
 downtown toronto,,
 draper,40.5246711,-111.8638226
-dravosburg,,
-dublin,53.3497645,-6.2602732
-duquesne,,
+dravosburg,40.3506251,-79.8861602
+dublin,37.7021521,-121.9357918
+duquesne,31.3709328,-110.6853608
 durham regional municipality,,
 east ajax,,
 east calgary,,
@@ -330,176 +249,176 @@ east credit,,
 east gwilimbury,,
 east gwillimbury,,
 east hawkesbury,,
-east liberty,,
+east liberty,31.6412878,-94.0238037
 east mc keesport,,
-east mckeesport,,
-east mesa,,
+east mckeesport,40.3831247,-79.8064360
+east mesa,38.5660434,-107.9336522
 east mississauga,,
-east pittsburgh,,
-east york,,
-eastlake,,
-edgemont,,
-edgewood,35.0614358,-106.1914141
+east pittsburgh,40.3957108,-79.8384391
+east york,39.9737093,-76.6863554
+eastlake,32.6597767,-116.9789141
+edgemont,46.9248541,-120.4611973
+edgewood,47.2318245,-122.2843724
 edmonton,53.5354110,-113.5079960
-eighty four,,
-el mirage,33.6130338,-112.3244866
-elizabeth,-33.9617051,25.6207519
+eighty four,40.1827171,-80.1331455
+el mirage,34.6022132,-117.6311675
+elizabeth,46.3796820,-96.1292260
 elizabeth township,,
-elrama,,
-elyria,41.3682510,-82.1065757
-emsworth,53.6131631,-1.3601800
-enterprise,36.0467110,-115.2245569
+elrama,40.2520145,-79.9250493
+elyria,41.6796914,-99.0061738
+emsworth,50.8473211,-0.9371343
+enterprise,40.5637623,-122.3427844
 erie,42.1294712,-80.0852695
 estrella village,,
-estérel,,
+estérel,46.0423647,-74.0204110
 etibicoke,,
-etna,54.9953097,-3.0669404
+etna,44.8159924,-69.1169358
 etobicoke,,
 "etobicoke,",,
 etobiicoke,,
-euclid,41.5231076,-81.5184553
-evergreen,39.6328450,-105.3232995
-export,,
+euclid,34.1737218,-94.0185270
+evergreen,40.9041117,-111.8771600
+export,40.2606259,-80.2603377
 fabreville,,
-fairlawn,41.1326644,-81.6262051
-fairport harbor,,
-fairview park,41.4461727,-81.8526519
-farmington,40.9804423,-111.8874688
+fairlawn,33.1978968,-87.6108413
+fairport harbor,41.7519155,-81.2723464
+fairview park,40.7091121,-112.1029977
+farmington,37.9299250,-121.0002168
 farnham,51.2151749,-0.7984854
-finleyville,,
-fisher,39.9555928,-86.0138729
-fitchburg,42.5834228,-71.8022956
+finleyville,40.2522922,-80.0028294
+fisher,40.9415149,-124.1183986
+fitchburg,42.4392026,-84.2777413
 fitchburgh,,
-fithian,,
-forest hills,-29.7588889,30.8305556
+fithian,40.1139242,-87.8730857
+forest hills,38.5079678,-122.9244402
 fort  mill,,
-fort mcdowell,,
+fort mcdowell,33.6367105,-111.6745826
 fort mill,35.0073697,-80.9450759
 fountain hills,33.6117105,-111.7173613
 fountain hls,,
-fox chapel,,
+fox chapel,32.5376403,-84.9638209
 franklin park,41.9353084,-87.8656180
-frazer,,
+frazer,48.0593842,-106.0423560
 ft. mill,,
 garfield heights,41.4169974,-81.6059581
 garfield hts,,
-garrettsville,,
-gastonia,35.2620820,-81.1873005
-gates mills,,
+garrettsville,41.2842220,-81.0964860
+gastonia,32.6118008,-96.4024841
+gates mills,41.5177790,-81.4037880
 geauga,,
 gelndale,,
-georgetown,6.8025766,-58.1628612
-gibsonia,,
-gifford,,
+georgetown,38.9068445,-120.8385462
+gibsonia,37.6469926,-88.2625375
+gifford,48.3062820,-118.1463778
 gilbert,33.3527632,-111.7890373
-glassport,,
+glassport,40.3247918,-79.8922712
 glbert,,
-glen williams,,
-glendale,33.5386858,-112.1859941
+glen williams,43.6680120,-79.9270154
+glendale,40.8998507,-124.0170056
 glendale az,,
-glenshaw,,
-godmanchester,,
-goodwood,,
-goodyear,33.4353672,-112.3576005
-gormley,,
-grafton,-29.6912500,152.9333435
-grand canyon,,
-grand river,,
-green tree,,
-green valley,,
-greenfield park,,
-greensboro,36.0726355,-79.7919754
+glenshaw,40.5328462,-79.9675536
+godmanchester,52.3190233,-0.1728001
+goodwood,30.7307424,-91.7640040
+goodyear,34.0084309,-85.9888603
+gormley,38.9723236,-80.0889681
+grafton,38.9700484,-90.4315046
+grand canyon,53.9394098,-121.6496988
+grand river,30.2265864,-91.4184444
+green tree,40.6627247,-111.9707711
+green valley,31.8542511,-110.9937019
+greenfield park,42.3350407,-85.1372131
+greensboro,32.7045753,-87.5958396
 greenway,49.3666670,-99.1166670
-grove city,39.8814519,-83.0929645
-guadalupe,25.6751114,-100.2151753
-halton hills,,
+grove city,45.1505185,-94.6830533
+guadalupe,33.3631249,-111.9625328
+halton hills,43.6470100,-80.0176040
 hamilton,43.2552050,-79.8682020
-hampstead,50.6611666,-3.7667490
+hampstead,36.1448591,-80.1228220
 hampton township,40.5811818,-79.9532110
-harmar township,,
-harmarville,,
+harmar township,40.5399650,-79.8339595
+harmarville,40.5311790,-79.8483834
 harrisbug,,
 harrisburg,40.2663107,-76.8861122
 "harrisburg,",,
-harrison city,,
-harwick,,
-heidelberg,49.4093582,8.6947240
-hemmingford,,
-henderson,36.0301134,-114.9826194
+harrison city,40.3542355,-79.6483764
+harwick,40.5567341,-79.8050493
+heidelberg,-34.0899580,20.9585895
+hemmingford,45.0474377,-73.5863187
+henderson,37.4793824,-122.1655200
 henderson (green valley),,
 henderson and las vegas,,
 henderson nevada,,
 hendersonville,36.3049177,-86.6214430
 henderston,,
 hendserson,,
-henryville,,
-herminie,,
-highland heights,,
-highland hills,,
+henryville,34.4245340,-86.2622040
+herminie,40.2633602,-79.7146697
+highland heights,47.2171817,-124.2026334
+highland hills,30.3868588,-91.1395502
 highland hts,,
-highland park,42.1816919,-87.8003438
+highland park,56.1166670,-118.8500000
 higley,,
 hinckley,52.5410591,-1.3729379
-hiram,,
+hiram,35.4692466,-91.8679220
 hnederson,,
-holland landing,44.1012517,-79.4916460
-homer,59.6440876,-151.5401477
-homestead,25.4718946,-80.4759905
-hudson,56.0259608,-121.9140470
-huntersville,35.4108450,-80.8429094
+holland landing,32.9648493,-90.7806537
+homer,51.7817118,6.7739910
+homestead,41.9134899,-121.4230461
+hudson,44.9746896,-92.7568703
+huntersville,46.7757920,-94.8927939
 huntingdon,52.3314292,-0.1847723
-huntington beach,33.6783336,-118.0000166
-huntsburg,,
+huntington beach,40.8978759,-73.3834519
+huntsburg,41.5347761,-81.0517629
 hyland heights,,
-iberville,,
+iberville,30.2960276,-91.1167713
 imperial,32.8475529,-115.5694391
-independence,39.0924792,-94.4137923
+independence,45.2124380,-110.2463031
 indian land,,
 "indian land,",,
-indian trail,35.0768141,-80.6692352
+indian trail,34.4756607,-82.7015236
 indianola,47.7514399,-122.5227583
-inglewood,33.9562003,-118.3531320
-ingomar,,
-ingram,,
-irwin,40.3301738,-79.7093339
-ivesdale,,
-jefferson hills,40.2911809,-79.9319942
-joliet,46.0239798,-73.4419936
+inglewood,47.6223223,-122.0681769
+ingomar,37.1773376,-120.9690412
+ingram,38.8901809,-123.1719494
+irwin,43.4075180,-111.2960220
+ivesdale,39.9433658,-88.4553363
+jefferson hills,33.5723264,-86.7733234
+joliet,45.4852243,-108.9704266
 joliette,46.0239798,-73.4419936
 kahnawake,,
 kannapolis,35.4874708,-80.6214380
-kennedy township,,
-kent,41.3123363,69.2787079
-kettleby,,
-king,17.9712148,-76.7928128
+kennedy township,40.4764251,-80.1015002
+kent,47.3826903,-122.2270272
+kettleby,44.0054930,-79.5734086
+king,31.3796092,-97.9147484
 king city,36.2127439,-121.1260287
 kirkland,47.6859573,-122.1920249
-kirtland,41.6289370,-81.3614990
-kleinburg,,
+kirtland,36.7342984,-108.3601614
+kleinburg,43.8441840,-79.6289060
 l'assomption,45.8307051,-73.4222086
 l'ile-bizard,,
 l'ile-perrot,,
 l'île-bizard,,
 l'île-perrot,,
-la prairie,49.9724220,-98.2891850
+la prairie,45.4174659,-73.4891644
 la salle,49.6909481,-97.2646544
 la vegas,,
-lachenaie,,
-lachine,,
-lachute,45.6560478,-74.3401388
-lacolle,,
+lachenaie,45.7022830,-73.5535424
+lachine,45.0775112,-83.7160984
+lachute,32.2637686,-93.5265645
+lacolle,45.0796837,-73.3736934
 lagrange,33.0392910,-85.0313269
-lake las vegas,,
+lake las vegas,36.1078744,-114.9244420
 lake mead,,
 lake norman,,
-lake park,45.1154274,-93.2492872
-lake wylie,,
+lake park,47.7209316,-122.2473474
+lake wylie,35.1085916,-81.0424965
 lakewood,47.1714085,-122.5164000
 "lakewood, oh",,
 lancaster,54.0484068,-2.7990345
 las  vegas,,
 las vegas,36.1672559,-115.1485163
-las vegas ,10.7076220,-69.1635257
+las vegas ,,
 las vegas & henderson,,
 las vegas east,,
 las vegas nevada,,
@@ -509,62 +428,62 @@ las vegas valley,,
 "las vegas, nv",,
 las vegass,,
 las vergas,,
-lasalle,42.2366520,-83.0950930
+lasalle,29.9757602,-91.9476206
 lasvegas,,
-laval,45.5757802,-73.7530656
+laval,48.0710377,-0.7723499
 "laval, pont viau",,
 "laval, ste dorothee",,
-lavaltrie,,
+lavaltrie,45.8830780,-73.2822420
 laveen,,
 laveen village,,
-lawrence,38.9719384,-95.2359496
-lawrenceville,38.7292138,-87.6816927
+lawrence,-29.5009847,153.1003352
+lawrenceville,34.5092655,-91.1809536
 le haut-saint-laurent regional county municipality,,
 le sud-ouest,,
-leaside,,
+leaside,43.7047983,-79.3680904
 leeds,53.7974185,-1.5437941
-leetsdale,,
-les coteaux,,
-les cèdres,,
-leslieville,,
-library,,
+leetsdale,40.5631230,-80.2083928
+les coteaux,48.0882129,-1.5778421
+les cèdres,45.7194782,4.9065107
+leslieville,52.3827381,-114.6036060
+library,40.2897921,-80.0097743
 lindale,32.5156971,-95.4093998
-litchfield,45.1271847,-94.5280474
-litchfield park,,
-locust,,
+litchfield,40.3826772,-120.3871634
+litchfield park,33.4933796,-112.3581244
+locust,43.4216371,-91.7223718
 lodi,45.3138959,9.5032630
 london,51.5073219,-0.1276474
 longueuil,45.5172382,-73.4467466
 lorain,41.4673238,-82.1781904
-los angeles,34.0536909,-118.2427666
-los vegas,,
-lowell,42.6334247,-71.3161718
+los angeles,26.5781179,-98.1397300
+los vegas,37.7435391,-1.2091889
+lowell,43.9184592,-122.7836822
 lower burrell,40.5882821,-79.7298187
-lower lawrenceville,,
-lowesville,,
-lufkin,31.3386242,-94.7288558
+lower lawrenceville,40.4645141,-79.9643986
+lowesville,35.4170805,-81.0111870
+lufkin,44.7510717,-91.6107199
 lyndhurst,50.8727657,-1.5748436
-lynhurst,,
-macedonia,41.3136670,-81.5084500
+lynhurst,39.7589327,-86.2480447
+macedonia,32.7292139,-94.5274147
 madison,43.0747610,-89.3837613
-mahomet,,
+mahomet,30.8217685,-97.9320922
 malton,54.1349419,-0.7965915
-manchester,42.9956397,-71.4547891
-mansfield,40.7583900,-82.5154471
-mantua,39.7940026,-75.1721232
-maple,49.2197385,-122.5998426
-maple grove,45.0759797,-93.4561052
-maple heights,41.4153313,-81.5659560
+manchester,40.0588102,-76.7211368
+mansfield,41.8056870,-77.0792881
+mantua,41.4957692,-111.9438329
+maple,33.8487040,-102.8985495
+maple grove,40.4690283,-123.8336524
+maple heights,43.9563786,-88.3176057
 maricopa,33.0581290,-112.0477554
-markham,43.8543360,-79.3267820
+markham,46.9054751,-123.9962250
 "markham, on",,
-marshall,44.4469635,-95.7886581
-marvin,,
+marshall,61.8777778,-162.0811111
+marvin,38.4164153,-92.7707475
 mascouche,45.7453521,-73.6005591
-mathews,37.4337395,-76.3210700
+mathews,40.6402253,-111.8768793
 mattews,,
-matthews,33.6648760,-80.7778681
-mayfield,36.7413624,-88.6352595
+matthews,45.6277079,-111.0843930
+mayfield,51.0193508,0.2619784
 mayfield heights,41.5192189,-81.4578960
 mayfield heights (cleveland),,
 mayfield heights.,,
@@ -572,50 +491,50 @@ mayfield hts,,
 mayfield hts.,,
 mayfield village,,
 mc adenville,,
-mc donald,,
+mc donald,-17.7619033,-63.1778559
 mc farland,,
 mc kees rocks,,
 mc murray,,
 mcadenville,35.2593056,-81.0753535
 mccandless,40.5819343,-80.0378692
 mccandless township,,
-mcdonald,,
+mcdonald,38.1882535,-122.9094405
 mcfarland,35.6780104,-119.2292748
-mckees rocks,,
+mckees rocks,40.4656244,-80.0656106
 mckeesport,40.3478472,-79.8642150
 mckeesrocks,,
-mcknight,,
+mcknight,34.9072737,-100.5573512
 mcmasterville,45.5492232,-73.2302916
-mcmurray,56.7291997,-111.3885221
+mcmurray,48.3162135,-122.2354291
 mcmurry,,
-median,42.4259906,-2.4187939
+median,,
 medicine hat,50.0430300,-110.6790160
-medina,41.8836792,-5.0433596
+medina,47.6205480,-122.2264453
 medina township,,
-mentor,41.6661573,-81.3395520
+mentor,46.4590431,-117.4726809
 mentor on the,,
 mentor on the lake,,
-mentor-on-the-lake,,
-mercier,45.3104440,-73.7460510
-mesa,33.4151117,-111.8314773
+mentor-on-the-lake,41.7050450,-81.3603860
+mercier,39.7083345,-95.6016490
+mesa,44.6287760,-116.4507007
 mesa arizona,,
 mesa az,,
 metro phoenix,,
-middleburg,41.3614401,-81.8129120
+middleburg,34.2567434,-99.8100966
 middleburg heights,41.3614401,-81.8129120
 middleburg hts,,
 middleburg hts.,,
-middlefield,,
-middleton,53.5484755,-2.1972661
-midland,31.9973662,-102.0779482
+middlefield,-32.4316667,147.5677778
+middleton,52.5832442,-1.7388479
+midland,-31.8890099,116.0024530
 midnapore,,
-midway,,
-milford,55.0879227,-7.6989323
-millvale,,
-milton,43.2552050,-79.8682020
+midway,49.0129900,-118.7827790
+milford,53.0027022,-1.4807007
+millvale,40.4800690,-79.9783862
+milton,52.2422961,0.1604726
 mint  hill,,
-mint hill,,
-mirabel,-16.2547215,-44.1639075
+mint hill,38.5492097,-91.7471163
+mirabel,44.6087281,4.4981934
 missisauga,,
 mississagua,,
 mississauaga,,
@@ -623,21 +542,21 @@ mississauga,43.5903380,-79.6457290
 mississauge,,
 mississaugua,,
 mississuaga,,
-monona,,
-monongahela,,
+monona,43.0516494,-91.3893041
+monongahela,40.2031265,-79.9261603
 monoroeville,,
 monreoville,,
-monroe,32.5093109,-92.1193012
-monroeville,40.4211798,-79.7881025
+monroe,52.4205236,-7.2332214
+monroeville,31.5279399,-87.3247077
 mont st-hilaire,,
-mont-royal,45.5162829,-73.6429846
-mont-saint-grégoire,,
+mont-royal,,
+mont-saint-grégoire,45.3364610,-73.1593320
 mont-saint-hilaire,45.5623512,-73.1918864
-monterey park,34.0515220,-118.1298070
-montgomery,32.3669656,-86.3006485
+monterey park,32.3056960,-86.2388552
+montgomery,52.5608721,-3.1477385
 monticello,45.3055202,-93.7941378
 montral,,
-montreal,,
+montreal,-36.3816723,150.0678468
 montreal-est,,
 montreal-nord,,
 montreal-ouest,,
@@ -645,39 +564,39 @@ montreal-quest,,
 montreal-west,,
 montrose,56.7114840,-2.4681517
 montrèal,,
-montréal,45.4972159,-73.6103642
+montréal,44.5273577,4.2931380
 montréal (québec),,
 montréal-est,45.6309797,-73.4977437
 montréal-nord,,
 montréal-ouest,45.4528530,-73.6442548
 montréal-west,,
-montville,40.9148209,-74.3837630
+montville,49.5479845,1.0750949
 montéal,,
-mooers,,
-moon,-34.0675469,137.5894365
+mooers,44.9635830,-73.5874560
+moon,34.4221093,-90.4882905
 moon township,40.5061000,-80.2082000
 moon twp,,
 moon twp.,,
-mooresville,39.6128243,-86.3741600
-moreland hills,,
+mooresville,39.7452914,-93.7177140
+moreland hills,41.4478310,-81.4276150
 morgan,41.0360566,-111.6774417
 morgan hill,37.1304080,-121.6544974
 morin-heights,,
-moseley,,
+moseley,40.2488693,-103.7541179
 mount albert,44.1372419,-79.3090669
-mount holly,35.2976601,-81.0162049
-mount horeb,,
-mount lebanon,40.3765000,-80.0508000
-mount oliver,,
-mount washington,38.0500627,-85.5457877
+mount holly,33.3026262,-92.9548857
+mount horeb,-35.2068285,148.0348274
+mount lebanon,32.5037644,-93.0490508
+mount oliver,40.4123735,-79.9852984
+mount washington,39.0994490,-94.4663414
 mt holly,,
 mt lebanon,,
 mt. holly,,
 mt. horeb,,
 mt. lebanon,,
 mt. washington,,
-munhall,,
-munroe falls,,
+munhall,40.3922914,-79.9000499
+munroe falls,41.1390360,-81.4400220
 murrysville,40.4284015,-79.6975450
 murrysville (monroeville),,
 n e las vegas,,
@@ -691,27 +610,27 @@ n. randall,,
 n. ridgeville,,
 napierville,45.1860800,-73.4042485
 nationwide,,
-nellis,,
+nellis,38.1509335,-81.7426219
 nellis afb,,
 nellis air force base,,
-nevada,37.8381108,-94.3596185
+nevada,33.0423409,-96.3738721
 neville island,,
-new eagle,,
+new eagle,40.2078486,-79.9469943
 new glarus,42.8145157,-89.6338752
 new kensington,40.5697893,-79.7647705
-new river,,
+new river,33.9158687,-112.1359906
 new tecumseth,,
-new york,40.7127281,-74.0060152
-newburgh heights,,
+new york,53.0784049,-0.1396847
+newburgh heights,41.4500520,-81.6634618
 newbury,51.4020055,-1.3236425
-newmarket,44.0562580,-79.4617080
-nobleton,,
+newmarket,52.2443103,0.4065503
+nobleton,45.6769999,-91.7066936
 north  ridgeville,,
 north  york,,
-north braddock,,
+north braddock,40.4016648,-79.8508890
 north carolina,,
-north charlotte,,
-north hills,,
+north charlotte,35.2418093,-80.8017370
+north hills,40.7877237,-111.8738250
 north huntingdon,,
 north huntington,,
 north las vegas,36.2005843,-115.1215844
@@ -721,83 +640,82 @@ north olmstead,,
 north olmsted,41.4156025,-81.9234726
 "north olmsted,",,
 north phoenix,,
-north randall,,
+north randall,41.4344240,-81.5254920
 north ridgeville,41.3894905,-82.0190321
 north royalton,41.3136644,-81.7245739
-north scottsdale,,
+north scottsdale,-41.1113300,147.5550800
 north strabane township,,
 north toronto,,
 north versailles,40.3797913,-79.8094916
-north york,,
+north york,46.3927272,-90.7776860
 northeast calgary,,
 northfield,52.4117187,-1.9634301
-northfield center,,
+northfield center,41.3137618,-81.5390621
 northfield center township,,
-northwest calgary,,
 northyork,,
-norton,51.2857477,-2.4771543
-norval,,
+norton,51.9935098,-0.2087396
+norval,43.6467673,-79.8584210
 notre-dame-de-l'ile-perrot,,
 nottingham township,,
-novelty,47.6792585,-122.0277216
-noyan,,
-o'hara township,,
+novelty,47.7090624,-121.9843924
+noyan,45.0666905,-73.2993215
+o'hara township,40.5183146,-79.9240003
 oak ridges,,
-oakdale,37.7665947,-120.8471545
-oakland,37.8044557,-122.2713563
-oakmont,40.5217347,-79.8422719
+oakdale,53.7201141,-2.4892704
+oakland,28.5551442,-81.6280753
+oakmont,41.0471661,-111.9082734
 oakridges,,
-oakville,43.4474360,-79.6666720
-oakwood,,
-oakwood village,,
-oberlin,39.8183380,-100.5282010
-ogden,41.2230048,-111.9738429
-oka,40.3264800,36.5540300
+oakville,46.8408862,-123.2327728
+oakwood,40.6466143,-111.8435450
+oakwood village,39.9672822,-83.7788168
+oberlin,49.6345852,10.8195827
+ogden,53.6041248,-2.0747717
+oka,-33.1100762,151.5552138
 old brooklyn,,
 old port of montreal,,
 old scottsdale,,
 old town scottsdale,,
 oldham,53.5415797,-2.1147831
-olmsted falls,,
+olmsted falls,41.3750490,-81.9081937
 olmsted township,,
-omaha,41.2587459,-95.9383758
-orange,-33.2820463,149.0971567
+omaha,54.2299343,-8.3014975
+orange,44.1371311,4.8078783
 orange village,,
-oregon,45.3573429,-122.6067583
-ormstown,,
-oshawa,43.9176800,-78.8629530
+oregon,39.5937745,-121.5294142
+ormstown,40.7933932,-78.0166721
+oshawa,46.8038480,-94.6388936
 otterburn park,45.5425651,-73.2020384
-outremont,,
+outremont,47.3775454,7.1629362
 pahrump,36.2083012,-115.9839128
 painesville,41.7244885,-81.2456570
 painesville township,,
-palgrave,,
-paoli,38.5561663,-86.4683210
-paradise,39.7596061,-121.6219177
-paradise valley,33.5324295,-111.9505123
-parma,44.8013678,10.3280833
+palgrave,52.3644842,1.1044938
+paoli,41.0217180,14.8472410
+paradise,53.0337733,-110.2969851
+paradise valley,53.0337733,-110.2969851
+parma,49.1142087,2.2090453
 parma heights,41.3900518,-81.7595769
 parma mid birth,,
-pasadena,29.6910625,-95.2091006
-paw creek,,
-peninsul,22.2932514,114.2837165
-peninsula,22.2932514,114.2837165
+pasadena,47.6968382,-117.2827110
+paw creek,35.2748624,-80.9384064
+peninsul,-29.6536111,152.9027778
+peninsula,-29.6536111,152.9027778
 penn hills,40.4729398,-79.8176723
 penn hills township,,
-pennsylvania,,
-peoria,40.6938609,-89.5891008
-pepper pike,,
+pennsylvania,26.1142430,-97.6433233
+peoria,44.4487336,-123.2073187
+pepper pike,41.4783870,-81.4637300
 pepperpike,,
-perry,41.8386702,-94.1067623
+perry,51.7906441,-1.1678337
 perry twp,,
 peters township,,
 pgh int arprt,,
 pheonix,,
 pheonix az,,
-philo,,
+philo,55.1755560,-111.6233330
 phoeniix,,
-phoenix,33.4484367,-112.0741417
-phoenix ,,
+phoenix,-32.7136111,151.6288889
+phoenix ,-32.7136111,151.6288889
 phoenix az,,
 phoenix metro area,,
 phoenix valley,,
@@ -807,198 +725,198 @@ phoenx,,
 phoneix,,
 phoniex,,
 phx,,
-pickering,43.8357650,-79.0905760
+pickering,54.2452377,-0.7793593
 pickering ajax whitby,,
-piedmont,37.8243715,-122.2316350
-pierrefonds,,
-pincourt,,
-pine,34.2157064,-92.0140402
-pineville,31.3224044,-92.4343035
-pitcairn,,
+piedmont,48.0936984,-123.7915880
+pierrefonds,49.3474567,2.9781976
+pincourt,49.3288569,5.6670165
+pine,51.1635235,1.3107788
+pineville,31.3121269,-92.4273587
+pitcairn,46.4277389,-96.8425810
 pittsburch,,
 pittsburg,40.4416941,-79.9900861
 pittsburgh,40.4416941,-79.9900861
-pittsburgh ,,
-pleasant hills,,
-plum,50.3833330,-99.0833330
+pittsburgh ,40.3329338,-80.9518675
+pleasant hills,-35.4619712,146.7967552
+plum,47.8378469,-2.6396508
 plum boro,,
 point-claire,,
-pointe claire,,
-pointe-aux-trembles,,
+pointe claire,30.4379747,-91.9581731
+pointe-aux-trembles,46.6858743,-71.6610717
 pointe-calumet,45.5006572,-73.9668364
 pointe-claire,45.4566767,-73.8067442
 port credit,,
-port vue,,
-presto,53.7593363,-2.6992717
-promenade,,
+port vue,40.3359028,-79.8697707
+presto,52.6126362,-0.7142833
+promenade,46.6098775,3.2391080
 prévost,45.8708880,-74.0736010
 puyallup,47.1849009,-122.2921406
-quartier des spectacles,,
+quartier des spectacles,45.5080050,-73.5653119
 queen creek,33.2483858,-111.6341585
-queensville,,
+queensville,39.0511644,-85.6771942
 québec,46.8259601,-71.2352226
-rainbow valley,,
+rainbow valley,33.2319897,-112.3871008
 rankin,62.8030269,-92.0868012
-ranlo,-14.6046728,40.6817522
-rantoul,40.3083672,-88.1558785
-ravenna,44.4161414,12.2017617
-rawdon,46.0454129,-73.7107666
-red mountain,,
-red rock,48.9425710,-88.2590588
-regent square,,
+ranlo,35.2862489,-81.1303550
+rantoul,38.5486246,-95.1002471
+ravenna,44.4851718,12.2788139
+rawdon,53.8502166,-1.6713596
+red mountain,35.3582967,-117.6167261
+red rock,53.5836337,-2.6274755
+regent square,40.4327640,-79.8927767
 regional municipality of york,,
-reminderville,,
+reminderville,41.3458880,-81.3951110
 repentigny,45.7326055,-73.4528307
-rexdale,,
-richfield,38.7724674,-112.0840943
+rexdale,43.7397696,-79.5722857
+richfield,39.9748791,-122.1766565
 richland township,40.6431340,-79.9570383
-richmond height,41.5528290,-81.5101210
-richmond heights,41.5528290,-81.5101210
-richmond hil,31.9382652,-81.3034433
-richmond hill,31.9382652,-81.3034433
+richmond height,37.9449240,-122.3135811
+richmond heights,37.9449240,-122.3135811
+richmond hil,34.7278674,-87.7169748
+richmond hill,34.7278674,-87.7169748
 richmond hts,,
 richmonhill,,
-rigaud,45.4794481,-74.3019608
-rillton,,
-rio verde,-17.7921255,-50.9191219
+rigaud,45.2190404,5.1306836
+rillton,40.2892365,-79.7311552
+rio verde,33.7233612,-111.6782566
 river drive park,,
 robinson,48.7811049,2.2619632
 robinson township,40.4552531,-80.1362596
 robinson twp.,,
-rock hill,34.9248667,-81.0250784
+rock hill,38.6075525,-90.3784505
 rock hill sc,,
 rockey view,,
-rocky river,41.4756031,-81.8393034
+rocky river,35.3062532,-80.5978452
 rocky view,,
 rocky view county,,
 rocky view no. 44,,
-rockyview,,
+rockyview,49.5006617,-115.7949657
 rockyview county,,
 rosemere,,
 rosemère,45.6323155,-73.8052338
-ross,42.7597261,11.1137389
+ross,51.8329727,-5.0641479
 ross township,40.5419843,-80.0114344
 rostraver,,
-rougemont,,
-rouses point,,
-roxboro,,
-rural ridge,,
+rougemont,46.4900222,7.2106603
+rouses point,44.9939400,-73.3649830
+roxboro,40.6730024,-111.9621599
+rural ridge,36.2892734,-82.3620842
 russell twp,,
-russellton,,
+russellton,40.6114557,-79.8369958
 s concord,,
-sacramento,38.5815719,-121.4943996
-sagamore hills,,
-sage hill,,
+sacramento,38.6060158,-121.4574543
+sagamore hills,41.3365056,-81.5617791
+sage hill,40.6788360,-111.8618791
 saint - hyacinthe,,
-saint joseph,39.7686055,-94.8466322
-saint laurent,,
-saint leonard,,
+saint joseph,52.5422220,-9.0766670
+saint laurent,-22.0770015,166.3090806
+saint leonard,51.6625567,-1.1376728
 saint-basile-le-grand,45.5262460,-73.2876515
 saint-bernard de lacolle,,
-saint-bernard-de-lacolle,,
+saint-bernard-de-lacolle,45.0822480,-73.4123610
 saint-bruno,45.5256161,-73.3391798
 saint-bruno-de-montarville,45.5256161,-73.3391798
 saint-charles-borromee,,
 saint-constant,45.3724897,-73.5704589
 saint-eustache,45.5646052,-73.8929714
 saint-henri,46.6920770,-71.0671230
-saint-hippolyte,,
-saint-hubert,,
+saint-hippolyte,43.9643602,3.8564364
+saint-hubert,50.0251428,5.3738561
 saint-hyacinthe,45.6274840,-72.9406360
 saint-isidore-de-laprairie,,
 saint-jean-sur-richelieu,45.3056879,-73.2533401
 saint-jerome,,
 saint-jérôme,45.7754260,-74.0131760
-saint-lambert,50.8430448,4.4256732
+saint-lambert,47.4811787,-0.6786062
 saint-laurent,43.6690101,7.1906969
-saint-lazare,45.3996015,-74.1359184
+saint-lazare,45.1285324,1.2302677
 saint-leonard,,
-saint-léonard,47.1651978,-67.9244707
-saint-marc-sur-richelieu,,
-saint-philippe,-21.3606197,55.7660672
-saint-pie,47.3898152,0.7189761
-saint-pierre-de-véronne-à-pike-river,,
-saint-roch-de-l'achigan,,
-saint-sauveur,47.2977106,5.1382218
+saint-léonard,50.6888137,1.6270864
+saint-marc-sur-richelieu,45.6771865,-73.1940958
+saint-philippe,45.3584499,-73.4790045
+saint-pie,49.6679883,-1.4046471
+saint-pierre-de-véronne-à-pike-river,45.1224750,-73.0693820
+saint-roch-de-l'achigan,45.8560650,-73.5932920
+saint-sauveur,47.8036807,6.3837753
 saint-sauveur-des-monts,,
 sainte-adele,,
 sainte-adèle,45.9532980,-74.1360860
 sainte-anne-de-bellevue,45.4092897,-73.9461485
 sainte-anne-des-plaines,45.7641700,-73.8188550
-sainte-catherine,45.4006420,-73.5756074
+sainte-catherine,50.3048640,2.7634560
 sainte-dorothée,,
 sainte-genevieve,,
 sainte-geneviève,48.6407872,2.3259129
-sainte-julie,45.5930624,-73.3395943
-sainte-madeleine,,
-sainte-marguerite-du-lac-masson,,
+sainte-julie,45.8896873,5.2780456
+sainte-madeleine,45.5948220,-73.0937580
+sainte-marguerite-du-lac-masson,46.0312960,-74.0571210
 sainte-marguerite-esterel,,
-sainte-marthe,45.5295339,-73.9326476
+sainte-marthe,44.4197991,0.1506696
 sainte-rose,51.0500000,-99.5333330
-sainte-therese,,
-sainte-thérèse,45.6342923,-73.8362379
+sainte-therese,47.2995463,3.7094921
+sainte-thérèse,49.7833330,-83.6500000
 sainte-thérèse-de-blainville,,
 saintt-bruno-de-montarville,,
 salaberry-de-valleyfield,45.2555625,-74.1316153
-sale,40.6803601,14.7594542
-san diego,32.7174209,-117.1627714
-san tan,33.1775233,-111.5478925
+sale,53.4244939,-2.3184150
+san diego,33.0067130,-116.7836352
+san tan,5.0295410,97.6832989
 san tan valley,33.1775233,-111.5478925
-sandy ridge,,
-sauk city,,
-savoy,,
+sandy ridge,26.3722909,-98.1183416
+sauk city,43.2715944,-89.7226827
+savoy,49.2932000,3.6405400
 scarborough,54.2820009,-0.4011868
-scarbrough,,
+scarbrough,33.6306648,-84.2188090
 scarobrough,,
-schaumburg,42.0333608,-88.0834060
-schomberg,,
+schaumburg,52.2013668,9.1946912
+schomberg,36.6389185,-104.4994331
 schottsdale,,
 scotesdale,,
-scotsdale,,
+scotsdale,38.3991074,-90.5873163
 scottadale,,
-scottdale,33.7898269,-84.2640889
+scottdale,42.0419869,-86.4352980
 scottsale,,
 scottsdale,33.4942189,-111.9260184
 "scottsdale, az",,
 seattle,47.6038321,-122.3300624
-sedona,34.8696661,-111.7611616
-seven hills,41.3953304,-81.6762392
-sewickley,,
-shady side,,
-shadyside,,
+sedona,42.7355561,-2.9924945
+seven hills,40.0263747,-105.3119359
+sewickley,40.5817342,-80.1367249
+shady side,41.6167042,-87.1430899
+shadyside,29.7340965,-91.3903857
 shaker heights,41.4739419,-81.5370671
 shaker hts,,
-shaler,40.5218904,-79.9616141
+shaler,41.2389448,-81.2312132
 shaler township,40.5218904,-79.9616141
-sharon,38.8977867,-101.7521158
-sharpsburg,,
-sheffield,53.3806626,-1.4702278
-sheffield lake,,
+sharon,39.4821106,-121.2469055
+sharpsburg,40.8024876,-94.6424676
+sheffield,51.0025016,0.0109500
+sheffield lake,41.4875400,-82.1015370
 sheffield village,,
-shorewood hills,,
-side slopes,,
+shorewood hills,34.4375910,-92.8960056
+side slopes,40.4245136,-79.9761635
 sidney,41.1438300,-102.9772840
-silver lake,,
+silver lake,43.1275970,-121.0468916
 snowflake,34.5114704,-110.0796089
-solon,41.3897764,-81.4412259
-somerton,51.0537141,-2.7315544
-south amherst,,
+solon,45.1290540,8.2832340
+somerton,51.9541093,-1.2772030
+south amherst,41.3558794,-82.2537689
 south charlotte,,
 south euclid,41.5231076,-81.5184553
-south hills,,
+south hills,35.9292347,-85.0049557
 south las vegas,,
-south park,40.3028000,-79.9939000
+south park,43.4221501,-110.7932610
 south park township,40.3028000,-79.9939000
-south russell,,
+south russell,44.3714506,-75.1274248
 southeast calgary,,
 southside flats,,
 spartanburg,34.9498007,-81.9320157
 spring hill city view,,
-spring valley,41.3275353,-89.1998078
-springdale,36.1867442,-94.1288142
-squirrel hill,,
-st joseph,,
-st leonard,50.8557256,0.5480144
+spring valley,49.9434919,-105.4002706
+springdale,37.1888714,-112.9985515
+squirrel hill,32.4112543,-90.1298086
+st joseph,-7.0924669,52.7758827
+st leonard,50.8307043,-1.8381545
 st-benoît de mirabel,,
 st-bruno-de-montarville,,
 st-clet,,
@@ -1009,26 +927,26 @@ st-lazare,,
 st-leonard,,
 st. jean sur richelieu,,
 st. joseph,-20.4509085,166.5961364
-st. leonard,,
+st. leonard,47.4657680,-54.4327712
 st. léonard,,
 st. sauveur,,
-st.pittsburgh,,
-stallings,,
+st.pittsburgh,40.3957108,-79.8384391
+stallings,38.7247712,-90.0631612
 stanley,53.7132000,-1.4745000
 ste-dorothée,,
-ste-rose,,
+ste-rose,45.3664051,-74.9786839
 ste-therese-de-blainville,,
 stetson valley,,
 stouffville,43.9673490,-79.2473758
-stoughton,49.6794164,-103.0261084
-stow,-33.3070589,26.5272648
+stoughton,52.6133887,-1.0543484
+stow,51.9303426,-1.7230154
 streetsboro,41.2392230,-81.3459410
-streetsville,,
-strip district,,
+streetsville,43.5882276,-79.7225355
+strip district,40.4539580,-79.9842195
 strongsville,41.3144733,-81.8351100
-strongville,,
-sturgeon,44.8341639,-87.3770420
-summerlin,36.1913172,-115.3018606
+strongville,44.4257650,-79.9310113
+sturgeon,54.2798254,-101.8181476
+summerlin,35.0843316,-77.9574850
 summerlin south,36.1410313,-115.3291977
 sun city,33.6619813,-112.3412695
 sun city west,33.6619813,-112.3412695
@@ -1036,31 +954,31 @@ sun lakes,33.2111623,-111.8754166
 sun praiie,,
 sun prairie,43.1834579,-89.2134359
 suncity,,
-sunnyslope,,
-sunrise,,
-sunrise manor,,
+sunnyslope,51.6482104,-113.5553103
+sunrise,39.2315607,-121.0718946
+sunrise manor,36.2110473,-115.0731314
 suprise,,
-surprise,33.6292271,-112.3680189
+surprise,59.6166670,-133.4166670
 surprise crossing,,
-sutersville,,
+sutersville,40.2365804,-79.8017975
 sw calgary,,
-swissvale,,
-tallmadge,41.1014616,-81.4417989
-tampa,27.9477595,-82.4584440
-tarentum,,
-tega cay,,
+swissvale,38.8336152,-95.5802582
+tallmadge,41.1114224,-87.6250355
+tampa,38.5472314,-97.1530774
+tarentum,31.6393291,-85.8788344
+tega cay,35.0243120,-81.0278546
 temecula,33.4946353,-117.1473661
-tempe,33.4255056,-111.9400125
-tempe ,,
-terrebonne,45.7081005,-73.6515157
-the promenade,,
-thomasboro,,
-thorncliffe park,,
+tempe,46.1090993,1.3685926
+tempe ,34.9077985,-111.4423713
+terrebonne,44.3528521,-121.1775004
+the promenade,43.2179441,-89.3541626
+thomasboro,40.2417001,-88.1842134
+thorncliffe park,43.7045530,-79.3454074
 thornhil,55.2402740,-3.7675599
 thornhill,55.2402740,-3.7675599
-tolleson,,
-tolono,,
-tornto,,
+tolleson,33.4500497,-112.2593093
+tolono,39.9861415,-88.2589387
+tornto,62.1309260,16.8633500
 toronto,43.6539630,-79.3872070
 toronto division,,
 toronto scarborough,,
@@ -1069,106 +987,107 @@ toronto-north york,,
 toronto-west,,
 tottenham,-32.2442028,147.3523020
 township of concord,,
-trafford,40.3856428,-79.7596050
-tremont,,
+trafford,53.2217842,-2.8324698
+tremont,45.4521870,5.8836195
 troy township,,
-tucson,32.2228765,-110.9748477
-turtle creek,,
-tuscola,39.7991986,-88.2831038
+tucson,32.1875769,-111.0909295
+turtle creek,32.3806995,-90.0261949
+tuscola,32.2095777,-99.7967542
 twinsburg,41.3125552,-81.4401129
 twinsburgh,,
-union,43.6501518,1.4846885
-unionville,,
+union,48.2903185,14.2974303
+unionville,46.5413221,-112.0850005
 university,47.2368034,-122.5520678
-university heights,41.4978310,-81.5373460
+university heights,46.0335315,-114.2156441
 university ht,,
 university hts ,,
 upper saint clair,,
 upper st clair,,
 upper st. clair,40.3359029,-80.0833881
-uptown,,
-urbana,40.1117174,-88.2073010
+uptown,40.6934173,-77.0335928
+urbana,45.1941310,11.4453492
 "urbana, illinois",,
 uxbridge,51.5449509,-0.4816672
-val-morin,,
-valencia,7.9028844,125.0898033
+val-morin,46.0069891,-74.1877334
+valencia,42.2936047,-5.5188832
 valley city,40.6966290,-111.9867271
-valley view,,
+valley view,46.4232180,-116.9707112
 valleywide,,
-varennes,45.6834691,-73.4362737
-vaudreuil,45.3971509,-74.0254577
+varennes,47.0131960,3.1456935
+vaudreuil,49.2532604,1.1969613
 vaudreuil-dorion,45.3971509,-74.0254577
-vaughan,43.7941544,-79.5268023
+vaughan,53.1152862,-9.1487092
 vaughan mills,,
-vaughn,,
+vaughn,47.3442617,-122.7631918
 vegas,36.1672559,-115.1485163
-venetia,,
-venise-en-québec,,
+venetia,37.9985338,-122.5252541
+venise-en-québec,45.0846693,-73.1493677
 verdun,49.1589278,5.3867277
 verona,45.4384958,10.9924122
-vieux-montréal,,
-villa grove,,
+vieux-montréal,45.5033677,-73.5574484
+villa grove,38.2487726,-105.9487456
 ville mont-royal,,
 ville saint laurent,,
-vimont,,
+vimont,43.4497222,0.9691667
 w henderson,,
 w spring valley,,
-waddell,,
-wadsworth,41.0256101,-81.7298519
-walton hills,,
-warrendale,,
-warrensville,41.4353500,-81.5148240
+waddell,33.6114269,-112.4271084
+wadsworth,28.8327464,-95.9358396
+walton hills,41.3656100,-81.5612320
+warrendale,45.6126174,-122.0156390
+warrensville,41.4425536,-81.5170652
 warrensville heights,41.4353500,-81.5148240
 warrensville hts,,
 warrensville hts.,,
-warrenville,41.8179303,-88.1740970
-waterloo,43.4668740,-80.5246350
+warrenville,47.6603710,-122.7707092
+waterloo,50.8797911,-1.0314789
 waunakee,43.1919373,-89.4556749
-waxhaw,,
-weddington,,
+waxhaw,33.9176085,-90.9692737
+weddington,51.2874334,1.2755162
 wellington,-41.2887953,174.7772114
-wesley chapel,,
-west elizabeth,,
-west homestead,,
+wesley chapel,35.2689702,-92.7326641
+west elizabeth,40.2709033,-79.8992153
+west homestead,40.3939581,-79.9119946
 west lake,47.9959244,-122.1018175
 west mifflin,40.3634026,-79.8664375
 west montréal,,
 west toronto,,
-west view,,
-westlake,34.1460234,-118.8061794
-westmount,45.4857329,-73.5963951
-weston,51.3471927,-2.9778916
-westport,53.8000645,-9.5202180
-westview,,
+west view,41.1866158,-112.0288436
+westlake,43.8832261,-124.1151130
+westmount,46.1356819,-60.2195427
+weston,51.8643990,-1.2266697
+westport,44.6784620,-76.3974630
+westview,40.6521689,-112.0163280
 westworld scottsdale,,
 wexford,52.3367671,-6.4601397
 whiitby,,
 whitby,54.4874141,-0.6155111
 whitchurch-stouffville,,
-white oak,39.0398315,-76.9930319
-whitney,36.0885321,-115.0372130
+white oak,34.4909395,-90.1592593
+whitney,38.8335106,-121.3068964
 whtiby,,
-wickliffe,41.6053270,-81.4534490
-wildwood,38.5806948,-90.6314374
+wickliffe,30.6865745,-91.3976121
+wildwood,53.6101974,-115.2374610
 wilkens township,,
-wilkins township,,
+wilkins township,40.4245852,-79.8218079
 wilkinsburg,,
-willoughby,41.6397696,-81.4065011
-willoughby hills,,
-willowdale,,
-willowick,41.6331030,-81.4687270
-wilmerding,,
-windsor,42.3042300,-83.0298610
+willoughby,52.9902279,0.0096339
+willoughby hills,52.9902279,0.0096339
+willowdale,30.0060362,-90.1947976
+willowick,39.9508918,-84.0393808
+wilmerding,40.3909023,-79.8100473
+windsor,-33.6055342,150.8219530
 woodbridge,52.0940952,1.3201301
 woodbridge (vaughan),,
-woodmere,,
+woodmere,40.8921084,-111.8668775
 woodmere village,,
 york,53.9590555,-1.0815361
 york regional municipality,,
-yorkdale,,
-yorkville,41.6411409,-88.4472948
-youngtown,,
-zephyr,28.2336196,-82.1811947
+yorkdale,30.5579658,-91.1214950
+yorkville,38.8979586,-123.2144507
+youngtown,33.5937302,-112.3033265
+zephyr,39.0060103,-119.9472389
 île des soeurs,,
 île-des-soeurs,,
+​chandler,,
 ​chandler,,

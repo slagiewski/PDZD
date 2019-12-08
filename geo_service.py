@@ -1,7 +1,8 @@
 import overpy
 import csv
+import json
+import time
 from geopy import Nominatim
-
 
 class GeoDataDTO:
     def __init__(self, city, lat, lon):
@@ -12,11 +13,25 @@ class GeoDataDTO:
     def __iter__(self):
         return iter([self.city, self.lat, self.lon])
 
+    def __eq__(self, other):
+        if isinstance(other, GeoDataDTO):
+            return (str(self.city).lower() == str(other.city).lower())
+        else:
+            return False
+
+    def __ne__(self, other):
+        return (not self.__eq__(other))
+
+    def __hash__(self):
+        return hash(str(self.city).lower())
+
     def valid(self):
         return self.lat is not None and self.lon is not None
 
-
 class GeoService:
+    POSSIBLE_FIELDS = ['city', 'town', 'village', 'locality', 'hamlet']
+    POSSIBLE_GENERAL_FIELDS = ['neighbourhood']
+
     def __init__(self):
         self.api = overpy.Overpass()
         self.CSV_DELIMETER = ','
@@ -26,20 +41,21 @@ class GeoService:
 
         try:
             for geo_data_dto in geo_data_dtos:
+                time.sleep(0.5)
                 city_name = self.__get_city(geo_data_dto.lat, geo_data_dto.lon)
-                if city_name:
-                    updated_geo_data.append(
-                        {"geo_data": geo_data_dto, "valid_city": city_name})
-                else:
+                if not city_name:
                     print(
                         f"Could not find city name for ({geo_data_dto.lat}, {geo_data_dto.lon}) [{geo_data_dto.city}]")
+
+                updated_geo_data.append(
+                    {"geo_data": geo_data_dto, "valid_city": city_name})
             return updated_geo_data
         except Exception as e:
             print(
                 f"Exception occured during city names fetch: {e}. Returning retrieved data...")
             return updated_geo_data
 
-    def fetch_geo_data(self, cities):
+    def fetch_and_save_geo_data(self, cities, file_name):
         geo_data_list = []
         processed_cities = 0
         found_cities = 0
@@ -57,6 +73,8 @@ class GeoService:
                 print(
                     f"Processed cities: {processed_cities}. Found cities: {found_cities}")
 
+                self.save_geo_data([geo_data], file_name)
+
             print("All cities've been processed.")
         except:
             print(
@@ -67,21 +85,27 @@ class GeoService:
     def read_geo_data_from_file(self, geo_data_file_name):
         geo_data_list = []
 
-        with open(geo_data_file_name) as csv_file:
+        with open(geo_data_file_name, encoding='utf-8') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=self.CSV_DELIMETER)
             line_count = 0
             for row in csv_reader:
                 if row:
-                    geo_data_list.append(GeoDataDTO(row[0], row[1], row[2]))
+                    geo_data_list.append(
+                        GeoDataDTO(
+                            row[0], 
+                            None if not row[1] else row[1], 
+                            None if not row[2] else row[2]
+                            )
+                        )
                     line_count += 1
-            print(f'Processed {line_count} lines.')
+            print(f'Reading {geo_data_file_name}... Processed {line_count} lines.')
 
         return geo_data_list
 
     def read_city_names_from_file(self, file_name):
         city_foundcity_pairs = []
 
-        with open(file_name) as csv_file:
+        with open(file_name, encoding='utf-8') as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=self.CSV_DELIMETER)
             line_count = 0
             for row in csv_reader:
@@ -89,7 +113,7 @@ class GeoService:
                     city_foundcity_pairs.append(
                         {"city": row[0], "found_city": row[1]})
                     line_count += 1
-            print(f'Processed {line_count} lines.')
+            print(f'Reading {file_name}... Processed {line_count} lines.')
 
         return city_foundcity_pairs
 
@@ -119,33 +143,40 @@ class GeoService:
     def __get_city(self, lat, lon):
         geolocator = Nominatim()
         location = geolocator.reverse(f"{lat},{lon}", exactly_one=True)
-        if location.raw['address'].get('city', None):
-            return location.raw['address']['city']
-        else:
-            if location.raw['address'].get('town', None):
-                return location.raw['address']['town']
-            else:
-                return ""
+        
+        for field in self.POSSIBLE_FIELDS:
+            if value := location.raw['address'].get(field, None):
+                return value 
+        print(f"Could not find detailed data for response: {json.dumps(location.raw['address'])} \nChecking general fields...")
+        for field in self.POSSIBLE_GENERAL_FIELDS:
+            if value := location.raw['address'].get(field, None):
+                print(f"Found value in general field ({field}): {value}.")
+                return value 
+        print(f"Could not find valid location for {lat} {lon}")
+        return ""
 
     def __get_city_geo_data(self, cityName):
+        possible_fields_regex = f"({'|'.join(self.POSSIBLE_FIELDS)})"
         result = self.api.query(f"""
             node
-            [place=city]
+            ["place" ~ "{possible_fields_regex}"]
             ["name" ~ "{cityName}", i];
             out body;
             """)
         if not result.nodes:
+            print(f"{cityName} is too general. Checking in neighbourhoods...")
             result = self.api.query(f"""
                 node
-                [place=town]
+                ["place"="{self.POSSIBLE_GENERAL_FIELDS[0]}"]
                 ["name" ~ "{cityName}", i];
                 out body;
                 """)
             if result.nodes:
-                print(f"[-- A town has been found: {cityName} --]")
+                print(f"[-- A neighbourhood has been found --]")
+            else:
+                print(f"[-- No geo data for {cityName} --]")
+                return GeoDataDTO(cityName, None, None)
         else:
-            print(f"[-- A city has been found: {cityName} --]")
-        if not result.nodes:
-            print(f"[-- No geo data for {cityName} --]")
-            return GeoDataDTO(cityName, None, None)
+            print(f"[-- A 'city' has been found: {cityName} --]")
+            
         return GeoDataDTO(cityName, result.nodes[0].lat, result.nodes[0].lon)
