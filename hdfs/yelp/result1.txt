@@ -1,0 +1,2 @@
+//Some result of first analysis -- Jak lokalizacja restauracji i odległość od centrum miasta ma wpływa na jej ocenę?
+{"business_id":"2SWheh84yJXfytovILXOAQ","name":"Arizona Biltmore Golf Club","city":"Phoenix",  distanceRange : "(1,1]" , distanceFromCityCentre: 0.5}

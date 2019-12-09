@@ -1,0 +1,3 @@
+Some result of third analysis -- Czy nowi użytkownicy wystawiają oceny istotnie odbiegające od średniej?
+
+{"user_id":"l6BmjZMeQD3rDxWUbiAiow", "name":"Rashmi", "TimeCategory":"over year", daysNumber: 2219 }

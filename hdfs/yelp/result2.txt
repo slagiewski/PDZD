@@ -1,0 +1,3 @@
+//Some result of second analysis - Jaki wpływ na wartość oceny ma liczba dostępnych zdjęć oraz ich kategorie?
+
+{"business_id":"1SWheh84yJXfytovILXOAQ","name":"Arizona Biltmore Golf Club" "numberOfPhotos": 5, numberOfCategoryPhotos [{"inside":1 "food": 2, "drink":0, "outside": 2} ]}"business_id":"1SWheh84yJXfytovILXOAQ","name":"Arizona Biltmore Golf Club" "numberOfPhotos": 5, numberOfCategoryPhotos [{"inside":1 "food": 2, "drink":0, "outside": 2} ]}
