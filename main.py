@@ -5,15 +5,23 @@ from convert_to_csv import convert_to_csv
 from geo_service import GeoService, GeoDataDTO
 import warnings
 import time
-import numpy as np
 
 warnings.filterwarnings("ignore")
 
-def fix_city_names(invalid_cities, data_frame):
-    invalid_cities_file_name = "latlon_of_businesses_with_invalid_city_names.csv"
-    city_names_file_name = "city_names.csv"
-    geo_data_for_fixed_names_file_name = "geo_data_of_fixed_names.csv"
+geo_service = GeoService()
 
+dataset_file_name = "business"
+json_dataset_file_name = f"{dataset_file_name}.json"
+csv_dataset_file_name = f"{dataset_file_name}.csv"
+geo_data_file_name = "geo_data.csv"
+invalid_cities_file_name = "latlon_of_businesses_with_invalid_city_names.csv"
+city_names_file_name = "city_names.csv"
+
+def fix_city_names(all_cities, data_frame):
+    invalid_cities = list(set(
+        filter(lambda cityDto: not cityDto.valid(), all_cities)
+        ))
+    
     print("Checking if file with geodata of businesses with invalid city names exists...")
     city_data = []
     if not os.path.exists(invalid_cities_file_name):
@@ -45,9 +53,24 @@ def fix_city_names(invalid_cities, data_frame):
         else:
             print("Loaded city names file is valid. Skipping...")
 
-    print("Fetching geo data about fixed city names...")
+    
     fixed_cities = list(set(map(lambda x: x['found_city'], geo_service.read_city_names_from_file(city_names_file_name))))
-    fetch_and_save_geo_data(fixed_cities, geo_data_for_fixed_names_file_name)
+    print("Getting new city names from fixed city names...")
+    new_cities = list(set(
+        filter(
+            lambda fc: not next(
+                filter(
+                    lambda c: str(c.city).lower() == str(fc).lower(), 
+                    all_cities
+                    )
+                ), 
+            fixed_cities)
+        ))
+    print(f"Got {len(new_cities)} new city names.")
+
+    if len(new_cities):
+        print("Fetching geo data for the new city names...")
+        fetch_and_save_geo_data(new_cities, geo_data_file_name)
     print("Process has been completed. Quitting...")
 
 
@@ -80,6 +103,7 @@ def get_latlon_of_businesses_with_invalid_city_names(data_frame, invalid_cities)
     return list(set(city_data))
 
 def fetch_and_save_geo_data(cities, geo_data_file_name):
+    print(f"Fetching geo data about {len(cities)}")
     counter = 0
     while counter < len(cities):
         if counter > 0:
@@ -119,68 +143,55 @@ def fetch_and_save_valid_city_names(geo_dtos, city_names_file_name):
         print(f'Cities remaining to process: {len(geo_dtos) - counter}')
 
 
-geo_service = GeoService()
-
-dataset_file_name = "business"
-json_dataset_file_name = f"{dataset_file_name}.json"
-csv_dataset_file_name = f"{dataset_file_name}.csv"
-geo_data_file_name = "geo_data.csv"
-
-print("Checking if business dataset exists...")
-if not os.path.exists(json_dataset_file_name):
-    print(
-        f"Dataset doesn't exist! [path: {json_dataset_file_name}] Exiting.")
-    pass
-
-print("Checking for converted dataset file (CSV)...")
-if not os.path.exists(csv_dataset_file_name):
-    print("CSV file doesn't exist. Converting...")
-    convert_to_csv(json_dataset_file_name, csv_dataset_file_name)
-    print("CSV file's been created.")
-else:
-    print("CSV file already exists.")
-
-print("Loading CSV to data frame...")
-data_frame = pandas.read_csv(csv_dataset_file_name)
-
-# TODO create new file with changed city names to valid ones
-
-print("Getting grouped cities...")
-grouped_df = data_frame.groupby(data_frame["city"].str.lower())
-unique_cities = list(grouped_df.groups.keys())
-print(f"Retrieved {len(unique_cities)} cities.")
-
-
-print("Checking for geo data file...")
-if not os.path.exists(geo_data_file_name):
-    print("Geo data file not found. Getting centre location for cities...")
-    fetch_and_save_geo_data(unique_cities, geo_data_file_name)
-else:
-    print("Geo data file found. Validating...")
-
-    loaded_geo_data = geo_service.read_geo_data_from_file(
-        geo_data_file_name)
-
-    last_item_index = len(loaded_geo_data)
-
-    if last_item_index != len(unique_cities) - 1:
+def main():
+    print("Checking if business dataset exists...")
+    if not os.path.exists(json_dataset_file_name):
         print(
-            f"Loaded geo data file is incomplete. Last item index: {last_item_index} out of {len(unique_cities) - 1}. Getting centre location for the rest of the cities...")
-        fetch_and_save_geo_data(
-            unique_cities[last_item_index + 1:], 
-            geo_data_file_name)
+            f"Dataset doesn't exist! [path: {json_dataset_file_name}] Exiting.")
+        pass
+
+    print("Checking for converted dataset file (CSV)...")
+    if not os.path.exists(csv_dataset_file_name):
+        print("CSV file doesn't exist. Converting...")
+        convert_to_csv(json_dataset_file_name, csv_dataset_file_name)
+        print("CSV file's been created.")
     else:
-        print("Loaded geo data file is valid. Quitting.")
+        print("CSV file already exists.")
 
-print("Fixing city names based on geo location...")
-# x = geo_service.read_city_names_from_file("city_names_incomplete.csv")
-# not_valid_cities = list(map(lambda z: GeoDataDTO(z['city'], None, None), filter(lambda c: not c['found_city'], x)))
+    print("Loading CSV to data frame...")
+    data_frame = pandas.read_csv(csv_dataset_file_name)
 
-# fix_city_names(
-#     not_valid_cities,
-#     data_frame
-#     )
-fix_city_names(
-    list(set(filter(lambda cityDto: not cityDto.valid(), geo_service.read_geo_data_from_file(geo_data_file_name)))),
-    data_frame
-    )
+    print("Getting grouped cities...")
+    grouped_df = data_frame.groupby(data_frame["city"].str.lower())
+    unique_cities = list(grouped_df.groups.keys())
+    print(f"Retrieved {len(unique_cities)} cities.")
+
+
+    print("Checking for geo data file...")
+    if not os.path.exists(geo_data_file_name):
+        print("Geo data file not found. Getting centre location for cities...")
+        fetch_and_save_geo_data(unique_cities, geo_data_file_name)
+    else:
+        print("Geo data file found. Validating...")
+
+        loaded_geo_data = geo_service.read_geo_data_from_file(
+            geo_data_file_name)
+
+        last_item_index = len(loaded_geo_data)
+
+        if last_item_index != len(unique_cities) - 1:
+            print(
+                f"Loaded geo data file is incomplete. Last item index: {last_item_index} out of {len(unique_cities) - 1}. Getting centre location for the rest of the cities...")
+            fetch_and_save_geo_data(
+                unique_cities[last_item_index + 1:], 
+                geo_data_file_name)
+        else:
+            print("Loaded geo data file is valid. Quitting.")
+
+    print("Fixing city names based on geo location...")
+    fix_city_names(
+        geo_service.read_geo_data_from_file(geo_data_file_name),
+        data_frame
+        )
+
+main()

@@ -145,11 +145,13 @@ class GeoService:
         location = geolocator.reverse(f"{lat},{lon}", exactly_one=True)
         
         for field in self.POSSIBLE_FIELDS:
-            if value := location.raw['address'].get(field, None):
+            value = location.raw['address'].get(field, None)
+            if value:
                 return value 
         print(f"Could not find detailed data for response: {json.dumps(location.raw['address'])} \nChecking general fields...")
         for field in self.POSSIBLE_GENERAL_FIELDS:
-            if value := location.raw['address'].get(field, None):
+            value = location.raw['address'].get(field, None)
+            if value:
                 print(f"Found value in general field ({field}): {value}.")
                 return value 
         print(f"Could not find valid location for {lat} {lon}")
