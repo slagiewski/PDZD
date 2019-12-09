@@ -6,7 +6,6 @@ from hdfs import InsecureClient
 
 from config import config
 import converters
-from typing import List, Dict
 
 tables = {
     "business": {
@@ -54,10 +53,10 @@ def main():
 def load_file(table, fs, connection):
     limit = config['limit'] or -1
     if (limit > 0):
-        print(f'loading: {table} (first {limit} items only)')
+        print('loading: {0} (first {1} items only)'.format(table, limit))
         log_step = limit/10
     else:
-        print(f'loading: {table}')
+        print('loading: {}'.format(table))
         log_step = 10000
 
     (table_name, table_meta)  = table
@@ -72,19 +71,19 @@ def load_file(table, fs, connection):
                 htable = connection.table(table_name)
                 htable.put(item_id, converted_item)
                 if (ctr % log_step == 0):
-                    print(f'{ctr:10d} {table_name} id={item_id}')
+                    print('{0:10d} {1} id={2}'.format(ctr, table_name, item_id))
                 if (limit > 0 and ctr >= limit):
-                    print(f'{ctr:10d} {table_name}: import finished (limit reached)')
+                    print('{0:10d} {1}: import finished (limit reached)'.format(ctr, table_name))
                     return
                 ctr += 1
             except Exception as ex:
-                print(f"{ctr:10d} {table_name}: error saving item {item}: {ex}")
+                print("{0:10d} {1}: error saving item {2}: {3}".format(ctr, table_name, item, ex))
                 raise ex
-    print(f'{table_name}: import finished')
+    print('{}: import finished'.format(table_name))
 
 
 def init_hdfs(hdfs_config):
-    fs = InsecureClient(f"{hdfs_config['host']}:{hdfs_config['port']}")
+    fs = InsecureClient("{}:{}".format(hdfs_config['host'], hdfs_config['port']))
     prefix = hdfs_config['prefix']
     required_files = [prefix+v["file"] for _, v in tables.items()]
 
@@ -92,10 +91,10 @@ def init_hdfs(hdfs_config):
     return fs
 
 
-def assert_files_exist(files: List[str], fs: InsecureClient):
+def assert_files_exist(files, fs: InsecureClient):
     missing_files = list(filter(lambda x: fs.status(x, strict=False) is None, files))
     if len(missing_files) != 0:
-        raise Exception(f"The following files are missing on hdfs: {missing_files}")
+        raise Exception("The following files are missing on hdfs: {}".format(missing_files))
 
 
 def init_hbase(hbase_config):
@@ -105,12 +104,12 @@ def init_hbase(hbase_config):
     return connection
 
 
-def assert_tables_exist(target_tables: Dict[str, any], hbase_tables: List[str]):
+def assert_tables_exist(target_tables, hbase_tables):
     missing_tables = list(
         filter(lambda x: bytes(x, "utf-8") not in hbase_tables, target_tables)
     )
     if len(missing_tables) != 0:
-        raise Exception(f"The following tables are missing in hbase: {missing_tables}")
+        raise Exception("The following tables are missing in hbase: {}".format(missing_tables))
 
 
 if __name__ == "__main__":
