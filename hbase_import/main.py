@@ -64,7 +64,7 @@ def load_file(table, fs, connection):
     with fs.read(path) as data_file:
         ctr = 0
         for line in data_file:
-            item = json.loads(line)
+            item = json.loads(line.decode("utf-8"))
             try:
                 converted_item = table_meta["converter"](item)
                 item_id = table_meta['row_id'](item)
