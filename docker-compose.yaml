@@ -58,11 +58,13 @@ services:
       - "9090:9090"
       - "9095:9095"
       - "16010:16010"
-    volumes:
-      - .\storage\hbase:/host/:ro
+
   hbase_import:
     build: ./hbase_import
-    tty: true
+    depends_on: 
+      - hbase
+    environment:
+      - PYTHONUNBUFFERED=1 # default buffering causes massive delay on logs, docker attach hnags
     
 
   hue:
