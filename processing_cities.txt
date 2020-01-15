@@ -1,18 +1,24 @@
-// przetwarzanie odległość i przedziały 
-
-
-insert into table distance  select b.business_id b.city, sin(b.longitude) *sin(o.longitude) + cos(b.longitude) *cos(o.longitude)* cos(b.latitude -  o.latitude)   from  biznes b join OSMdata o on b.city == o.city  limit 5;
-
-
-create table distance2
+create table distance
 (business_id string,
 city string,
 distance double,
+stars float
+);
+
+
+insert into table distance  select b.business_id,b.city,b.stars, sin(b.longitude) *sin(o.longitude) + cos(b.longitude) *cos(o.longitude)* cos(b.latitude -  o.latitude)   from  biznes b join OSMdata o on b.city == o.city  limit 5;
+
+
+create table centre_distance
+(business_id string,
+city string,
+distance double,
+stars float,
 label string
 )
 stored as orc;
 
-insert into distance2  select business_id, city, distance, case
+insert into centre_distance select business_id, city, distance,stars, case
 when distance > 0 then '[0,1]'
 when distance > 1 then'(1,3]'
 when distance > 3 then'(3,5]'

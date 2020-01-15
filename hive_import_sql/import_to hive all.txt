@@ -126,13 +126,6 @@ stored as orc;
 
 insert overwrite table business Select * from biznes;
 
-create table distance
-(business_id string,
-city string,
-distance double
-)stored as orc;
-
-
 create external table if not exists user
 (
 name string,
