@@ -1,0 +1,14 @@
+show tables;
+select * from business;
+select * from photos;
+select * from checkins;
+select * from tips;
+select * from OSMdata limit 10;
+select * from reviews;
+select * from users;
+
+select * from distance;
+
+select * from centre_distance;
+
+

@@ -1,3 +1,29 @@
+create external table if not exists geodata
+(
+city string,
+latitude float,
+longitude float
+)
+row format delimited
+fields terminated by ','
+stored as textfile
+location '/user/DataSources/CSV/geodata';
+
+
+create table if not exists OSMdata
+(
+city string,
+latitude float,
+longitude float
+)
+row format delimited
+fields terminated by ','
+stored as orc;
+
+
+insert overwrite table OSMdata Select * from geodata;
+
+
 create external table if not exists review
 (
 user_id string,
@@ -201,7 +227,7 @@ compliment_count int
 row format delimited
 fields terminated by ','
 stored as textfile
-location '/user/DataSources/CSV/tip;
+location '/user/DataSources/CSV/tip';
 
 
 create  table if not exists tips
