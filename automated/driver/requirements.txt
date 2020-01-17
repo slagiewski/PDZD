@@ -1,0 +1,2 @@
+PyHive[hive]==0.6.1
+hdfs==2.5.8
