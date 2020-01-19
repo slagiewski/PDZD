@@ -1,12 +1,13 @@
 
 import json
+from json import  dumps
 from hdfs import InsecureClient
 
 paths = {
     "businessFile": "/user/DataSources/business.json",
     "geoDataFile": "/user/DataSources/geo_data.csv",
     "cityNamesFile": "/user/DataSources/city_names.csv",
-    "fixedBusinessFile": "/user/DataSources/business_fixed.json"
+    "fixedBusinessFile": "business_fixed.json"
 }
 
 hdfs_config = {
@@ -55,6 +56,7 @@ def fix_city_names(business_file_path, city_names, fs: InsecureClient):
                 print('{0} -> {1}'.format(item['city'], found_valid_city))
                 item['city'] = found_valid_city
                 fixed_names_ctr += 1
+            result.append(item)
 
     print('{} city names have been fixed'.format(fixed_names_ctr))
     if fixed_names_ctr != len(city_names):
@@ -63,7 +65,11 @@ def fix_city_names(business_file_path, city_names, fs: InsecureClient):
 
 def save_fixed_dataset(path, fixed_dataset, fs: InsecureClient):
     print('Saving fixed dataset to {}'.format(path))
-    client.write(path, data=dumps(fixed_dataset), encoding='utf-8')
+    strData = []
+    for obj in fixed_dataset:
+        strData.append(dumps(obj))
+    with open(paths['fixedBusinessFile'], "a+", encoding='utf-8') as text_file:
+        text_file.write(os.linesep.join(strData))
     
 
 def init_hdfs(hdfs_config):
