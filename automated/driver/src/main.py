@@ -1,16 +1,20 @@
 from typing import Dict, Any
+from time import sleep
+
 from pyhive import hive
 from hdfs import InsecureClient
 
 from properties import properties
 
+
 class Configuration:
 
     def __init__(self, properties: Dict[str, Any]):
         self._properties = properties
+
     def hive_host(self):
         return self._required_property('hive_host')
-    
+
     def hdfs_url(self):
         namenode_host = self._required_property('namenode_host')
         namenode_port = self._required_property('namenode_port')
@@ -28,6 +32,7 @@ class Configuration:
         except KeyError:
             raise Exception(f"Missing required property: '{key}'") from None
 
+
 class Context:
     def __init__(self, config: Configuration):
         self.config = config
@@ -35,65 +40,129 @@ class Context:
         self.hdfs = InsecureClient(config.hdfs_url())
         self.debug = lambda x: print(x) if config.debug() else lambda: None
 
+
 CONTEXT = Context(Configuration(properties))
 
 
+def print_banner(content):
+    width = len(content)
+    print("#" * (width + 4))
+    print("# " + content + " #")
+    print("#" * (width + 4))
+
+def hdfs_exists(path):
+    return CONTEXT.hdfs.status(path, strict=False) is not None
+
+####################################
+# Step definitions                 #
+####################################
+
 def step_00():
-    from convert_to_csv import convert_to_csv
-    from os import remove
-    print("Step 00: convert source data to CSV")
+    # load data to HDFS
+    (HDFS, DEBUG, CONFIG) = (CONTEXT.hdfs, CONTEXT.debug, CONTEXT.config)
+    import os
+    print_banner("Step 00: import data to HDFS")
+
+    src_dir = "/host_dataset"
+    hdfs_root = CONFIG.dataset_dir()
+
+    if not hdfs_exists(hdfs_root):
+        print(f"Root HDFS path '{hdfs_root}' does not exist - creating now.")
+        HDFS.makedirs(hdfs_root)
+    else:
+        print(f"Root HDFS path '{hdfs_root}' already exists.")
     
+    print(f"Importing all files from {src_dir}")
+
+    errors = []
+
+    for (path, dirs, files) in os.walk("/host_dataset"):
+        path_relative = path.replace(src_dir, "")
+        DEBUG(f"Walk:\n\tpath={path}\n\tpath relative to root: {path_relative}\n\tdirs={dirs}\n\tfiles={files}")
+        hdfs_directory = hdfs_root + path_relative if path_relative else hdfs_root
+        DEBUG(f"hdfs_dir: {hdfs_directory}")
+        for f in files:
+            try:
+                local_path = path + '/' + f
+                hdfs_path = hdfs_directory + '/' + f
+                print(f"Uploading: {local_path} -> {hdfs_path}")
+                if hdfs_exists(hdfs_path):
+                    print(f"Skipping upload: file already exists in HDFS")
+                else:
+                    with open(local_path, encoding='utf-8') as in_file:
+                        HDFS.write(hdfs_path, in_file, encoding='utf-8')
+            except Exception as ex:
+                errors.append((path + "/" + f, ex))
+    if errors != []:
+        print("One or more errors occurred while importing files")
+        for e in errors:
+            print(e)
+        raise Exception("Errors occurred during import") from None
+
+
+
+def step_01():
+    from convert_to_csv import convert_to_csv
+    import os
+    print_banner("Step 01: convert source data to CSV")
+
     (HDFS, DEBUG) = (CONTEXT.hdfs, CONTEXT.debug)
     input_dir = CONTEXT.config.dataset_dir()
     output_dir = CONTEXT.config.dataset_dir().rstrip("/") + "/CSV"
-    
-    inputs = HDFS.list(input_dir, status=True)
-    existing_outputs = HDFS.list(output_dir, status=False) if HDFS.status(output_dir, strict=False) else []
+
+    inputs = HDFS.list(input_dir, status=True)   
+
     for f in inputs:
         (name, meta) = f
         if (meta['type'] != 'FILE'):
             continue
         input_path = input_dir + "/" + name
-        output_name = name.replace('.json', '.csv')
-        output_path = output_dir + "/" + name.replace('.json', '.csv')
+        base_filename = name.replace('.json', '')
+        output_path = f"{output_dir}/{base_filename}/{base_filename}.csv"
+
         print(f"Converting: {input_path} -> {output_path}")
-        if output_name in existing_outputs:
+        if hdfs_exists(output_path):
             print("Already converted")
             continue
         tmp_in = "./data.json.tmp"
         tmp_out = "./data.csv.tmp"
+
         DEBUG(f"Downloading {input_path}...")
         HDFS.download(input_path, tmp_in)
+        
         DEBUG(f"Converting....")
         convert_to_csv(tmp_in, tmp_out)
+        
         DEBUG(f"Uploading results to {output_path}...")
         HDFS.upload(output_path, tmp_out)
+        
         DEBUG("Deleting temporary files...")
-        remove(tmp_in)
-        remove(tmp_out)
-        DEBUG("Done")
-                
+        os.remove(tmp_in)
+        os.remove(tmp_out)
+        
+        print("Done")
 
-    
-def step_01():
+
+def step_02():
     def load_sql(path: str):
         with open(path) as file:
             return file.read().rstrip().rstrip(';').split(";")
 
     def execute_sql(path: str):
         statements = load_sql(path)
-        ctr=1
+        ctr = 1
         for statement in statements:
-            CONTEXT.debug(f"Executing statement {ctr}/{len(statements)}: {statement};")
+            CONTEXT.debug(
+                f"Executing statement {ctr}/{len(statements)}:\n{statement.strip()};\n")
             CONTEXT.hive.execute(statement)
-            ctr+=1
-    
-    print("Step 01: import all data into Hive")
+            ctr += 1
+    print_banner("Step 02: import all data into Hive")
     sql_file = "hive/01_import_to_hive_all.sql"
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
 
-if __name__ == "__main__":  
+if __name__ == "__main__":
     step_00()
     step_01()
+    step_02()

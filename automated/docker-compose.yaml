@@ -10,24 +10,25 @@ services:
       - namenode
       - datanode
       - hive-server
+    volumes:
+      # set HOST_DATASET_PATH in the .env file before running; makes dataset available in namenode (at /_host_data) for adding to HDFS
+      - ${HOST_DATASET_PATH}:/host_dataset
     # command: bash
     # tty: true
 
   # Hadoop, HDFS
   namenode:
-    # image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
-    build: ./namenode
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    # build: ./namenode
     container_name: namenode
     volumes:
       - namenode:/hadoop/dfs/name # keep HDFS contents between container restarts
-      # set HOST_DATASET_PATH in the .env file before running; makes dataset available in namenode (at /_host_data) for adding to HDFS
-      - ${HOST_DATASET_PATH}:/_host_data
     environment:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop-hive.env
     ports:
-      - "15070:50070"
+      - "15070:50070" # HDFS api, web ui
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
@@ -49,7 +50,7 @@ services:
     environment:
       - NAMENODE_HOST=namenode
     ports:
-      - "8088:8088"
+      - "8088:8088" # web UI
     depends_on:
       - namenode
   
@@ -63,7 +64,8 @@ services:
       HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
-      - "10000:10000"
+      - "10000:10000" # server
+      - "10002:10002" # web UI
     depends_on:
       - hive-metastore
 

@@ -23,15 +23,15 @@ if __name__ == '__main__':
 
 
 def convert_to_csv(json_file_path, csv_file_path):
-    column_names = __get_superset_of_column_names_from_file(json_file_path)
+    column_names = sorted(__get_superset_of_column_names_from_file(json_file_path))
     __read_and_write_file(json_file_path, csv_file_path, column_names)
 
 
 def __read_and_write_file(json_file_path, csv_file_path, column_names):
     """Read in the json dataset file and write it out to a csv file, given the column names."""
     with open(csv_file_path, 'w', encoding="utf8") as fout:
-        csv_file = csv.writer(fout)
-        csv_file.writerow(list(column_names))
+        csv_file = csv.writer(fout, delimiter="\u001F")
+        csv_file.writerow(column_names)
         with open(json_file_path, encoding="utf8") as fin:
             for line in fin:
                 line_contents = json.loads(line)
