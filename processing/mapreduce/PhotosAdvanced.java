@@ -14,43 +14,15 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class PhotosAdvanced {
 
-    public static class IntArrayWritable extends ArrayWritable {
-        public IntArrayWritable() {
-            super(IntWritable.class);
-        }
-
-        public IntArrayWritable(IntWritable[] values) {
-            super(IntWritable.class, values);
-        }
-
-        @Override
-        public String toString() {
-            String[] arr = super.toStrings();
-            String resultStr = "";
-            if (arr.length == 5) {
-                resultStr = arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3] + "," + arr[4];
-            } else if (arr.length == 4) {
-                resultStr = arr[0] + "," + arr[1] + "," + arr[2] + "," + arr[3];
-            } else {
-                resultStr = "";
-            }
-
-            return resultStr;
-        }
-
-    }
-
-    public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
-
-        private Text word = new Text();
+    public static class TokenizerMapper extends Mapper<Object, Text, Text, Text> {
 
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String line = value.toString();
-            IntWritable[] intArr = new IntWritable[4];
-            System.out.println(line);
+
             if (line == null || line.isEmpty()) {
                 return;
             }
+
             String businessId = null;
             String label = null;
 
@@ -70,66 +42,67 @@ public class PhotosAdvanced {
                     label = els2[1].split(",")[0];
                 }
             }
-            IntWritable intWr = new IntWritable(0);
-            switch (label) {
-            case "food":
-                intWr = new IntWritable(1);
-                break;
-            case "drink":
-                intWr = new IntWritable(2);
-                break;
-            case "inside":
-                intWr = new IntWritable(3);
-                break;
-            case "outside":
-                intWr = new IntWritable(4);
-                break;
+
+            int intWr = -1;
+            if (label.equals("food")) {
+                intWr = 0;
+            } else if (label.equals("drink")) {
+                intWr = 1;
+            } else if (label.equals("inside")) {
+                intWr = 2;
+            } else if (label.equals("outside")) {
+                intWr = 3;
+            } else {
+                System.out.println("Invalid label-" + label + ";");
             }
 
-            word.set(businessId);
-
-            context.write(word, intWr);
+            context.write(new Text(businessId), new Text(Integer.toString(intWr)));
         }
     }
 
-    public static class IntSumReducer extends Reducer<Text, IntWritable, Text, Text> {
-        public void reduce(Text key, Iterable<IntWritable> values, Context context)
-                throws IOException, InterruptedException {
-            int sum = 0;
-            IntArrayWritable arr = new IntArrayWritable();
-            IntWritable[] intArr = new IntWritable[5];
-            int[] categorySums = { 0, 0, 0, 0, 0 };
+    public static class IntSumReducer extends Reducer<Text, Text, Text, Text> {
+        public void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
+            int counter = 0;
+            int foodCategoryCounter = 0;
+            int drinkCategoryCounter = 0;
+            int insideCategoryCounter = 0;
+            int outsideCategoryCounter = 0;
 
-            for (IntWritable val : values) {
-                categorySums[4] += 1;
-                switch (val.get()) {
+            if (key.toString().length() != 22) {
+                return;
+            }
+
+            for (Text value : values) {
+                counter++;
+                int x = 0;
+                try {
+                    x = Integer.parseInt(value.toString());
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid value: " + value.toString());
+                    return;
+                }
+                switch (x) {
                 case 0:
-                    categorySums[4] += 1;
+                    foodCategoryCounter++;
                     break;
                 case 1:
-                    categorySums[0] += 1;
+                    drinkCategoryCounter++;
                     break;
                 case 2:
-                    categorySums[1] += 1;
+                    insideCategoryCounter++;
                     break;
                 case 3:
-                    categorySums[2] += 1;
+                    outsideCategoryCounter++;
                     break;
-                case 4:
-                    categorySums[3] += 1;
-                    break;
+                default:
+                    System.out.println("Invalid category: " + x);
                 }
             }
 
-            intArr[0] = new IntWritable(categorySums[0]);
-            intArr[1] = new IntWritable(categorySums[1]);
-            intArr[2] = new IntWritable(categorySums[2]);
-            intArr[3] = new IntWritable(categorySums[3]);
-            intArr[4] = new IntWritable(categorySums[4]);
+            String result = foodCategoryCounter + "," + drinkCategoryCounter + "," + insideCategoryCounter + ","
+                    + outsideCategoryCounter + "," + counter;
 
-            arr.set(intArr);
-
-            context.write(key, arr);
+            context.write(new Text(key), new Text(result));
         }
     }
 
@@ -139,10 +112,9 @@ public class PhotosAdvanced {
         Job job = Job.getInstance(conf, "photos count advanced");
         job.setJarByClass(PhotosAdvanced.class);
         job.setMapperClass(TokenizerMapper.class);
-        job.setCombinerClass(IntSumReducer.class);
         job.setReducerClass(IntSumReducer.class);
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(IntArrayWritable.class);
+        job.setOutputValueClass(Text.class);
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
