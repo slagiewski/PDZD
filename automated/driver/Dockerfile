@@ -1,3 +1,4 @@
+
 FROM python:3.8-buster
 
 RUN mkdir /app
@@ -15,5 +16,5 @@ RUN curl https://raw.githubusercontent.com/vishnubob/wait-for-it/master/wait-for
 
 COPY src .
 COPY hive ./hive
-
-CMD ["./run.sh"]
+RUN hadoop --version
+CMD ["./run_driver.sh"]

@@ -29,6 +29,7 @@ services:
       - ./hadoop-hive.env
     ports:
       - "15070:50070" # HDFS api, web ui
+      - "9870:9870"
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
@@ -44,13 +45,41 @@ services:
     depends_on:
       - namenode
   
+  resourcemanager:
+    image: bde2020/hadoop-resourcemanager:2.0.0-hadoop3.1.3-java8
+    container_name: resourcemanager
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864"
+    env_file:
+      - ./hadoop-hive.env
+
+  
+  nodemanager1:
+    image: bde2020/hadoop-nodemanager:2.0.0-hadoop3.1.3-java8
+    container_name: nodemanager
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"
+    env_file:
+      - ./hadoop-hive.env
+  
+  historyserver:
+    image: bde2020/hadoop-historyserver:2.0.0-hadoop3.1.3-java8
+    container_name: historyserver
+    environment:
+      SERVICE_PRECONDITION: "namenode:9870 datanode:9864 resourcemanager:8088"
+    volumes:
+      - historyserver:/hadoop/yarn/timeline
+    env_file:
+      - ./hadoop-hive.env
+  
+
   hue:
     image: bde2020/hdfs-filebrowser
     container_name: hue
     environment:
       - NAMENODE_HOST=namenode
     ports:
-      - "8088:8088" # web UI
+      - "8080:8088" # web UI
     depends_on:
       - namenode
   
@@ -114,4 +143,5 @@ services:
 volumes:
   namenode:
   datanode:
-
+  historyserver:
+  very_secure_keys:
