@@ -1,4 +1,4 @@
-create table distance (
+create table if not exists distance (
     business_id string,
     city string,
     distance double,
@@ -14,7 +14,7 @@ insert into table distance
     from  business b join geodata o on b.city == o.city  limit 5;
 
 
-create table centre_distance
+create table if not exists centre_distance
 (
     business_id string,
     city string,

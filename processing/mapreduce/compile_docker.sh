@@ -1,3 +1,5 @@
+# this script runs ./compile.sh in a docker container with proper java version to avoid requiring jdk installation on the host
+
 # detect WSL :)
 if [[ $PWD == /mnt/[cd]/* ]]; then
     MOUNTABLE_PWD=$(sed 's|/mnt/|/|' <<< $PWD)

@@ -24,6 +24,7 @@ services:
     container_name: namenode
     volumes:
       - namenode:/hadoop/dfs/name # keep HDFS contents between container restarts
+      - ${HOST_JARS_PATH}:/host_jars
     environment:
       - CLUSTER_NAME=test
     env_file:
@@ -80,7 +81,7 @@ services:
     environment:
       - NAMENODE_HOST=namenode
     ports:
-      - "8080:8088" # web UI
+      - "8088:8088" # web UI
     depends_on:
       - namenode
   
