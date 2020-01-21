@@ -1,5 +1,6 @@
 from typing import Dict, Any
 from time import sleep
+import os
 
 from pyhive import hive
 from hdfs import InsecureClient
@@ -20,8 +21,14 @@ class Configuration:
         namenode_port = self._required_property('namenode_port')
         return f"http://{namenode_host}:{namenode_port}"
 
-    def dataset_dir(self):
+    def hdfs_dataset_dir(self):
         return self._required_property('hdfs_dataset_dir')
+
+    def local_dataset_dir(self):
+        return "/host_dataset"
+
+    def local_sources_dir(self):
+        return "/host_sources"
 
     def debug(self):
         return self._properties.get('debug', False)
@@ -56,16 +63,8 @@ def hdfs_exists(path):
 ####################################
 # Step definitions                 #
 ####################################
-
-def step_00():
-    # load data to HDFS
+def load_into_hdfs(src_dir, hdfs_root):
     (HDFS, DEBUG, CONFIG) = (CONTEXT.hdfs, CONTEXT.debug, CONTEXT.config)
-    import os
-    print_banner("Step 00: import data to HDFS")
-
-    src_dir = "/host_dataset"
-    hdfs_root = CONFIG.dataset_dir()
-
     if not hdfs_exists(hdfs_root):
         print(f"Root HDFS path '{hdfs_root}' does not exist - creating now.")
         HDFS.makedirs(hdfs_root)
@@ -99,16 +98,22 @@ def step_00():
             print(e)
         raise Exception("Errors occurred during import") from None
 
+def step_00():
+    # load data to HDFS
+    print_banner("Step 00: import data to HDFS")
+
+    src_dir = "/host_dataset"
+    hdfs_root = CONTEXT.config.hdfs_dataset_dir()
+    load_into_hdfs(src_dir, hdfs_root)
 
 
-def step_01():
+def step_10():
     from convert_to_csv import convert_to_csv
-    import os
-    print_banner("Step 01: convert source data to CSV")
+    print_banner("Step 10: convert source data to CSV")
 
     (HDFS, DEBUG) = (CONTEXT.hdfs, CONTEXT.debug)
-    input_dir = CONTEXT.config.dataset_dir()
-    output_dir = CONTEXT.config.dataset_dir().rstrip("/") + "/CSV"
+    input_dir = CONTEXT.config.hdfs_dataset_dir()
+    output_dir = CONTEXT.config.hdfs_dataset_dir().rstrip("/") + "/CSV"
 
     inputs = HDFS.list(input_dir, status=True)   
 
@@ -143,26 +148,33 @@ def step_01():
         print("Done")
 
 
-def step_02():
-    def load_sql(path: str):
-        with open(path) as file:
-            return file.read().rstrip().rstrip(';').split(";")
+def load_sql(path: str):
+    with open(path) as file:
+        return file.read().rstrip().rstrip(';').split(";")
 
-    def execute_sql(path: str):
-        statements = load_sql(path)
-        ctr = 1
-        for statement in statements:
-            CONTEXT.debug(
-                f"Executing statement {ctr}/{len(statements)}:\n{statement.strip()};\n")
-            CONTEXT.hive.execute(statement)
-            ctr += 1
-    print_banner("Step 02: import all data into Hive")
+def execute_sql(path: str):
+    statements = load_sql(path)
+    ctr = 1
+    for statement in statements:
+        CONTEXT.debug(
+            f"Executing statement {ctr}/{len(statements)}:\n{statement.strip()};\n")
+        CONTEXT.hive.execute(statement)
+        ctr += 1
+
+def step_20():
+    print_banner("Step 20: import all data into Hive")
     sql_file = "hive/01_import_to_hive_all.sql"
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
+def step_30():
+    print_banner("Step 30: run city centre analysis")
+    sql_file = "hive/10_processing_cities.sql"
+    print(f"\tExecuting: {sql_file}")
+    execute_sql(sql_file)
 
 if __name__ == "__main__":
-    step_00()
-    step_01()
-    step_02()
+        step_00()
+        step_10()
+        step_20()
+        step_30()

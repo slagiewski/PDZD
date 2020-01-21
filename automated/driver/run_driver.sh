@@ -5,4 +5,4 @@ if ! /wait-for-it.sh -h hive-server -p 10000 -t 90; then
 fi
 
 python -u /app/main.py
-bash    
+bash

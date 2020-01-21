@@ -1,0 +1,36 @@
+create table distance (
+    business_id string,
+    city string,
+    distance double,
+    stars float
+);
+
+
+insert into table distance 
+    select b.business_id,
+    b.city,
+    b.stars, 
+    sin(b.longitude) *sin(o.longitude) + cos(b.longitude) *cos(o.longitude)* cos(b.latitude -  o.latitude)   
+    from  business b join geodata o on b.city == o.city  limit 5;
+
+
+create table centre_distance
+(
+    business_id string,
+    city string,
+    distance double,
+    stars float,
+    label string
+)
+stored as orc;
+
+insert into centre_distance select business_id, city, distance, stars, case
+    when distance > 0 then '[0,1]'
+    when distance > 1 then'(1,3]'
+    when distance > 3 then'(3,5]'
+    when distance > 5 then '(5,7]'
+    when distance > 7 then'(7,10]'
+    when distance > 10 then'(10,15]'
+    when distance > 15 then '(15,...)'
+else null
+end from distance;
