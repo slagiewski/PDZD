@@ -46,6 +46,7 @@ echo "Running photosadvanced.jar"
 echo "Preparing input and output dirs..."
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -mkdir -p /user/Analysis2/MapReduce/input
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -mkdir -p /user/Analysis2/MapReduce/output
+docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -rm -f /user/Analysis2/MapReduce/input/photo.csv
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -cp /user/DataSources/CSV/photo/photo.csv /user/Analysis2/MapReduce/input
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -rmr /user/Analysis2/MapReduce/output
 echo "Running MapReduce job..."

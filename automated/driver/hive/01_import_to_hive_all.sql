@@ -3,7 +3,7 @@ create external table if not exists ext_geodata (
     latitude float,
     longitude float)
 row format delimited 
-    fields terminated by '\u001f' -- ASCII 31: unit separator, NOT PRINTABLE: needed because hive cannot handle quoted delimiters, every common separator exists in reviews file
+    fields terminated by ','
     stored as textfile 
     location '/user/DataSources/CSV/geodata';
 
@@ -32,7 +32,7 @@ create external table if not exists ext_review (
     useful int,
     user_id string)
 row format delimited 
-fields terminated by '\u001f' 
+fields terminated by '\u001f' -- ASCII 31: unit separator, NOT PRINTABLE: needed because hive cannot handle quoted delimiters, every common separator exists in reviews file
 stored as textfile location '/user/DataSources/CSV/review'
 tblproperties ("skip.header.line.count"="1");
 
