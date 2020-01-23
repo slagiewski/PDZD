@@ -1,0 +1,1 @@
+select max(yelping_since) from users;

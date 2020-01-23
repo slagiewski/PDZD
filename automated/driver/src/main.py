@@ -152,14 +152,31 @@ def load_sql(path: str):
     with open(path) as file:
         return file.read().rstrip().rstrip(';').split(";")
 
-def execute_sql(path: str):
+def execute_sql(path: str, variables: Dict[str, any] = None):
     statements = load_sql(path)
     ctr = 1
     for statement in statements:
+        if variables and len(variables):
+            for key, value in variables.items():
+                statement = statement.replace(f"${{{key}}}", value if type(value) is int else f"\"{value}\"")
         CONTEXT.debug(
             f"Executing statement {ctr}/{len(statements)}:\n{statement.strip()};\n")
         CONTEXT.hive.execute(statement)
         ctr += 1
+
+def execute_sql_with_result(path: str, fetch_one = False):
+    statements = load_sql(path)
+    if len(statements) != 1:
+        print("Number of statements is not 1! Returning...")
+        return
+    statement = statements[0]
+    CONTEXT.debug(
+        f"Executing statement {statement.strip()};\n")
+    CONTEXT.hive.execute(statement)
+    if fetch_one:
+        return CONTEXT.hive.fetchone()
+    else:
+        return CONTEXT.hive.fetchall()
 
 def step_20():
     print_banner("Step 20: import all data into Hive")
@@ -173,8 +190,18 @@ def step_30():
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
+def step_50():
+    print_banner("Step 50: run user analysis")
+    newest_date_sql_file = "hive/30_newest_record.sql"
+    sql_file = "hive/30_processing_users.sql"
+    print(f"\tExecuting: {newest_date_sql_file}")
+    base_date = execute_sql_with_result(newest_date_sql_file, fetch_one=True)[0]
+    execute_sql(sql_file, { "base_date": base_date })
+
+
 if __name__ == "__main__":
-        step_00()
-        step_10()
-        step_20()
-        step_30()
+    step_00()
+    step_10()
+    step_20()
+    step_30()
+    step_50()
