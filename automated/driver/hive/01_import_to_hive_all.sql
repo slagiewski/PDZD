@@ -104,7 +104,6 @@ from
 
 create external table if not exists ext_business (
     address string,
-
     attributes string,
     attr_AcceptsInsurance string,
     attr_AgesAllowed string,
@@ -132,8 +131,10 @@ create external table if not exists ext_business (
     attr_HasTV string,
     attr_Music string,
     attr_NoiseLevel string,
+    attributes_Open24Hours string,
     attr_OutdoorSeating string,
     attr_RestaurantsAttire string,
+    attributes_RestaurantsCounterService string,
     attr_RestaurantsDelivery string,
     attr_RestaurantsGoodForGroups string,
     attr_RestaurantsPriceRange2 string,
@@ -143,19 +144,17 @@ create external table if not exists ext_business (
     attr_Smoking string,
     attr_WheelchairAccessible string,
     attr_WiFi string,
-    
     business_id string,
     categories string,
     city string,
-    hours string,
     h_Friday string,
     h_Monday string,
     h_Saturday string,
-	h_Sunday string,
-	h_Thursday string,
-	h_Tuesday string,
-	h_Wednesday string,
-    
+    h_Sunday string,
+    h_Thursday string,
+    h_Tuesday string,
+    h_Wednesday string,
+    hours string,
     is_open int,
     latitude float,
     longitude float,
@@ -172,20 +171,20 @@ row format delimited
     tblproperties ("skip.header.line.count"="1");
 
 create table if not exists business (
-    business_id string,
-    name string,
     address string,
-    city string,
-    state string,
-    postal_code string,
-    latitude float,
-    longitude float,
-    stars float,
-    review_count int,
-    is_open int,
     attributes string,
     categories string,
-    hours string
+    city string,
+    hours string,
+    is_open int,
+    latitude float,
+    longitude float,
+    name string,
+    postal_code string,
+    review_count int,
+    stars float,
+    state string,
+    business_id string
     )
 row format delimited
     fields terminated by '\u001f'
@@ -193,7 +192,20 @@ row format delimited
 
 insert overwrite table business
 select
-    business_id, name, address, city, state, postal_code, latitude , longitude , stars , review_count, is_open, attributes, categories, hours
+    address,
+    attributes,
+    categories,
+    city,
+    hours,
+    is_open,
+    latitude,
+    longitude,
+    name,
+    postal_code,
+    review_count,
+    stars,
+    state,
+    business_id
 from
     ext_business;
 
