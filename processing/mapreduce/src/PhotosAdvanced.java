@@ -16,7 +16,7 @@ public class PhotosAdvanced {
 
     public static class TokenizerMapper extends Mapper<Object, Text, Text, Text> {
         static String SEPARATOR = "\u001f";
-        
+
         public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
             String line = value.toString();
 
@@ -31,17 +31,9 @@ public class PhotosAdvanced {
             if (els.length == 4) {
                 businessId = els[0];
                 label = els[2];
-            } else if (els.length < 4) {
-                return;
             } else {
-                String[] els1 = line.split(SEPARATOR + "\"");
-                businessId = els1[0];
-                String[] els2 = line.split("\"" + SEPARATOR);
-                if (els2.length != 2 || els2[1].split(",").length != 2) {
-                    return;
-                } else {
-                    label = els2[1].split(SEPARATOR)[0];
-                }
+                System.out.println("Invalid line: " + line);
+                return;
             }
 
             int intWr = -1;
@@ -53,8 +45,6 @@ public class PhotosAdvanced {
                 intWr = 2;
             } else if (label.equals("outside")) {
                 intWr = 3;
-            } else {
-                System.out.println("Invalid label-" + label + ";");
             }
 
             context.write(new Text(businessId), new Text(Integer.toString(intWr)));
@@ -95,8 +85,6 @@ public class PhotosAdvanced {
                 case 3:
                     outsideCategoryCounter++;
                     break;
-                default:
-                    System.out.println("Invalid category: " + x);
                 }
             }
 
@@ -109,7 +97,7 @@ public class PhotosAdvanced {
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
-        conf.set("mapred.textoutputformat.SEPARATOR", ",");
+        conf.set("mapred.textoutputformat.separator", ",");
         Job job = Job.getInstance(conf, "photos count advanced");
         job.setJarByClass(PhotosAdvanced.class);
         job.setMapperClass(TokenizerMapper.class);
