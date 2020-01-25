@@ -190,6 +190,15 @@ def step_30():
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
+def step_40():
+
+    #run mapreduce
+
+    print_banner("Step 40: run photo analysis")
+    sql_file = "hive/20_processing_photos.sql"
+    print(f"\tExecuting: {sql_file}")
+    execute_sql(sql_file)
+
 def step_50():
     print_banner("Step 50: run user analysis")
     newest_date_sql_file = "hive/30_newest_record.sql"
@@ -204,4 +213,5 @@ if __name__ == "__main__":
     step_10()
     step_20()
     step_30()
+    # step_40()
     step_50()
