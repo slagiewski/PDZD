@@ -209,9 +209,15 @@ def step_50():
 
 
 if __name__ == "__main__":
-    step_00()
-    step_10()
-    step_20()
-    step_30()
-    # step_40()
-    step_50()
+    mode = os.getenv("DRIVER_MODE")
+    print(f"mode: {mode}")
+    if mode == 'IMPORT':
+        step_00()
+        step_10()
+        step_20()
+        step_30()
+        step_50()
+    elif mode == 'PHOTO':
+        step_40()
+    else:
+        print(f"unknown mode {mode}. Use 'IMPORT' or 'PHOTO'!")

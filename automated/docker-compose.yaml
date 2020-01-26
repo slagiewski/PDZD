@@ -11,6 +11,8 @@ services:
       - datanode
       - hive-server
       # - resourcemanager
+    env_file:
+      - ./.env
     volumes:
       # set HOST_DATASET_PATH in the .env file before running; makes dataset available in namenode (at /_host_data) for adding to HDFS
       - ${HOST_DATASET_PATH}:/host_dataset

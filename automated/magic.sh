@@ -52,3 +52,5 @@ docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -rmr /user/Analysis2/Map
 echo "Running MapReduce job..."
 docker-compose -f $COMPOSE_FILE exec namenode hadoop jar /host_jars/mapreduce/photosadvanced.jar PhotosAdvanced /user/Analysis2/MapReduce/input /user/Analysis2/MapReduce/output
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -cp -f /user/Analysis2/MapReduce/output/part-r-00000 /user/Analysis2/middle_set_photos_count.csv
+
+docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" run -d -eDRIVER_MODE=PHOTO driver python -u /app/main.py && docker-compose -f $COMPOSE_FILE logs -f driver
