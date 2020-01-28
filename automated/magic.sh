@@ -34,7 +34,7 @@ cd -
 export HOST_JARS_PATH=$(sed 's|^/mnt/|/|g' <<< "$SCRIPT_DIR/jars")
 
 # Run the imports
-docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" up -d --build && docker-compose -f $COMPOSE_FILE logs -f driver
+docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" up -d --build && docker-compose -f $COMPOSE_FILE logs -f --tail 10 driver
 
 ###############
 # MAP REDUCE
@@ -53,4 +53,4 @@ echo "Running MapReduce job..."
 docker-compose -f $COMPOSE_FILE exec namenode hadoop jar /host_jars/mapreduce/photosadvanced.jar PhotosAdvanced /user/Analysis2/MapReduce/input /user/Analysis2/MapReduce/output
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -cp -f /user/Analysis2/MapReduce/output/part-r-00000 /user/Analysis2/middle_set_photos_count.csv
 
-docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" run -d -eDRIVER_MODE=PHOTO driver python -u /app/main.py && docker-compose -f $COMPOSE_FILE logs -f driver
+docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" run -d -eDRIVER_MODE=PHOTO driver python -u /app/main.py && docker-compose -f $COMPOSE_FILE logs -f --tail 10 driver

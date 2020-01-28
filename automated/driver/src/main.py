@@ -57,12 +57,15 @@ def print_banner(content):
     print("# " + content + " #")
     print("#" * (width + 4))
 
+
 def hdfs_exists(path):
     return CONTEXT.hdfs.status(path, strict=False) is not None
 
 ####################################
 # Step definitions                 #
 ####################################
+
+
 def load_into_hdfs(src_dir, hdfs_root):
     (HDFS, DEBUG, CONFIG) = (CONTEXT.hdfs, CONTEXT.debug, CONTEXT.config)
     if not hdfs_exists(hdfs_root):
@@ -70,14 +73,15 @@ def load_into_hdfs(src_dir, hdfs_root):
         HDFS.makedirs(hdfs_root)
     else:
         print(f"Root HDFS path '{hdfs_root}' already exists.")
-    
+
     print(f"Importing all files from {src_dir}")
 
     errors = []
 
     for (path, dirs, files) in os.walk("/host_dataset"):
         path_relative = path.replace(src_dir, "")
-        DEBUG(f"Walk:\n\tpath={path}\n\tpath relative to root: {path_relative}\n\tdirs={dirs}\n\tfiles={files}")
+        DEBUG(
+            f"Walk:\n\tpath={path}\n\tpath relative to root: {path_relative}\n\tdirs={dirs}\n\tfiles={files}")
         hdfs_directory = hdfs_root + path_relative if path_relative else hdfs_root
         DEBUG(f"hdfs_dir: {hdfs_directory}")
         for f in files:
@@ -98,6 +102,7 @@ def load_into_hdfs(src_dir, hdfs_root):
             print(e)
         raise Exception("Errors occurred during import") from None
 
+
 def step_00():
     # load data to HDFS
     print_banner("Step 00: import data to HDFS")
@@ -105,6 +110,24 @@ def step_00():
     src_dir = "/host_dataset"
     hdfs_root = CONTEXT.config.hdfs_dataset_dir()
     load_into_hdfs(src_dir, hdfs_root)
+
+
+def step_05():
+    from fix_city_names import do_fix_city_names
+    print_banner("Step 05: fix city names")
+
+    marker_file = CONTEXT.config.hdfs_dataset_dir() + "/../__business_fixed"
+
+    if hdfs_exists(marker_file):
+        print("business.json already fixed - skipping")
+        return
+
+    do_fix_city_names(CONTEXT.hdfs, {
+        "businessFile": CONTEXT.config.hdfs_dataset_dir() + "/business.json",
+        "cityNamesFile": CONTEXT.config.hdfs_dataset_dir() + "/CSV/city_names.csv",
+        "fixedBusinessFile": CONTEXT.config.hdfs_dataset_dir() + "/business.json",
+        "fixedMarker": marker_file
+    })
 
 
 def step_10():
@@ -115,7 +138,7 @@ def step_10():
     input_dir = CONTEXT.config.hdfs_dataset_dir()
     output_dir = CONTEXT.config.hdfs_dataset_dir().rstrip("/") + "/CSV"
 
-    inputs = HDFS.list(input_dir, status=True)   
+    inputs = HDFS.list(input_dir, status=True)
 
     for f in inputs:
         (name, meta) = f
@@ -134,17 +157,17 @@ def step_10():
 
         DEBUG(f"Downloading {input_path}...")
         HDFS.download(input_path, tmp_in)
-        
+
         DEBUG(f"Converting....")
         convert_to_csv(tmp_in, tmp_out)
-        
+
         DEBUG(f"Uploading results to {output_path}...")
         HDFS.upload(output_path, tmp_out)
-        
+
         DEBUG("Deleting temporary files...")
         os.remove(tmp_in)
         os.remove(tmp_out)
-        
+
         print("Done")
 
 
@@ -152,19 +175,22 @@ def load_sql(path: str):
     with open(path) as file:
         return file.read().rstrip().rstrip(';').split(";")
 
+
 def execute_sql(path: str, variables: Dict[str, any] = None):
     statements = load_sql(path)
     ctr = 1
     for statement in statements:
         if variables and len(variables):
             for key, value in variables.items():
-                statement = statement.replace(f"${{{key}}}", value if type(value) is int else f"\"{value}\"")
+                statement = statement.replace(
+                    f"${{{key}}}", value if type(value) is int else f"\"{value}\"")
         CONTEXT.debug(
             f"Executing statement {ctr}/{len(statements)}:\n{statement.strip()};\n")
         CONTEXT.hive.execute(statement)
         ctr += 1
 
-def execute_sql_with_result(path: str, fetch_one = False):
+
+def execute_sql_with_result(path: str, fetch_one=False):
     statements = load_sql(path)
     if len(statements) != 1:
         print("Number of statements is not 1! Returning...")
@@ -178,11 +204,13 @@ def execute_sql_with_result(path: str, fetch_one = False):
     else:
         return CONTEXT.hive.fetchall()
 
+
 def step_20():
     print_banner("Step 20: import all data into Hive")
     sql_file = "hive/01_import_to_hive_all.sql"
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
+
 
 def step_30():
     print_banner("Step 30: run city centre analysis")
@@ -190,22 +218,25 @@ def step_30():
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
+
 def step_40():
 
-    #run mapreduce
+    # run mapreduce
 
     print_banner("Step 40: run photo analysis")
     sql_file = "hive/20_processing_photos.sql"
     print(f"\tExecuting: {sql_file}")
     execute_sql(sql_file)
 
+
 def step_50():
     print_banner("Step 50: run user analysis")
     newest_date_sql_file = "hive/30_newest_record.sql"
     sql_file = "hive/30_processing_users.sql"
     print(f"\tExecuting: {newest_date_sql_file}")
-    base_date = execute_sql_with_result(newest_date_sql_file, fetch_one=True)[0]
-    execute_sql(sql_file, { "base_date": base_date })
+    base_date = execute_sql_with_result(
+        newest_date_sql_file, fetch_one=True)[0]
+    execute_sql(sql_file, {"base_date": base_date})
 
 
 if __name__ == "__main__":
@@ -213,6 +244,7 @@ if __name__ == "__main__":
     print(f"mode: {mode}")
     if mode == 'IMPORT':
         step_00()
+        step_05()
         step_10()
         step_20()
         step_30()
