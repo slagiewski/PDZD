@@ -3,28 +3,11 @@ from bokeh.plotting import figure, output_file, show
 from bokeh.models import FactorRange
 from bokeh.transform import factor_cmap
 from bokeh.palettes import Spectral6
-from pyhive import hive
 from properties import properties
 
 DEBUG = lambda x: print(x) if properties['debug'] else lambda: None
-
-an1 = [('distance1', 1), ('distance2', 2), ('distance3', 3)]
-
-an2 = [
-    (1.0, 1.2, 1.3, 13.2, 4, 10, 3.27),
-    (1.5, 1.3, 1.3, 13.2, 3, 11, 3.54),
-    (2.0, 1.87, 1.3, 3.52, 2, 12, 3.54),
-    (2.5, 1.1, 1.3, 3.2, 4, 2, 3.35),
-    (3.0, 1.2, 1.4, 1.2, 3.5, 2, 3.1),
-    (3.5, 1.3, 1.3, 4.2, 1, 2, 1, 3.1),
-    (4.0, 1.2, 1.4, 1.2, 3.5, 2, 3.1),
-    (4.5, 1.3, 1.3, 4.2, 1, 2, 1, 3.1),
-    (5.0, 1.2, 1.4, 1.2, 3.5, 2, 3.1)]
-    
-an3 = [('timespan1', 1), ('timespan2', 2), ('timespan3', 3)]
-
 def create_analysis_1_plot():
-    result = an1 #execute_sql("/hive/10_visualisation.sql")
+    result = load_results("visualisation_tmp/analysis1_data")
     (labels, avg_stars) = (list(map(lambda x: x[0], result)), list(map(lambda x: x[1], result)))
     fig = figure(
         x_range=labels,
@@ -37,7 +20,7 @@ def create_analysis_1_plot():
 
 
 def create_analysis_2_plot():
-    result = an2  #execute_sql("/hive/20_visualisation.sql")
+    result = load_results("visualisation_tmp/analysis2_data")
     factors = [
         ("1.0", "jedzenie"), ("1.0", "napoje"), ("1.0", "wnętrze"), ("1.0", "zewnątrz"), ("1.0", "wszystkie"),
         ("1.5", "jedzenie"), ("1.5", "napoje"), ("1.5", "wnętrze"), ("1.5", "zewnątrz"), ("1.5", "wszystkie"),
@@ -73,7 +56,7 @@ def create_analysis_2_plot():
 
 
 def create_analysis_3_plot():
-    result = an3 #execute_sql("/hive/30_visualisation.sql")
+    result = load_results("visualisation_tmp/analysis3_data")
     (labels, avg_stars) = (list(map(lambda x: x[0], result)), list(map(lambda x: x[1], result)))
 
     fig = figure(x_range = labels, tools="pan,box_zoom,reset,save", x_axis_label='wiek konta', y_axis_label='ocenianie', title="Analiza 3 - wpływ wieku konta na ocenę")
@@ -82,17 +65,11 @@ def create_analysis_3_plot():
     fig.y_range.start = 0
     return fig
 
-def execute_sql(path: str):
-    hive_context = hive.connect(properties['hive_host']).cursor()
-    sql = load_sql(path)
-    DEBUG(
-        f"Executing statement {sql.strip()};\n")
-    hive_context.execute(sql)
-    return hive_context.fetchall()
-
-def load_sql(path: str):
+def load_results(path: str):
+    lines = []
     with open(path) as file:
-        return file.read().rstrip()
+        lines = file.readlines()
+    return list(map(lambda x: x.split("\t"), lines))
 
 if __name__ == "__main__":
     output_file("visualisations.html")
@@ -103,5 +80,3 @@ if __name__ == "__main__":
     grid = gridplot([[plot1, plot2, plot3]], toolbar_location=None)
 
     show(grid)
-    
-    
