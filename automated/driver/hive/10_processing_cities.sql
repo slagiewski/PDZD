@@ -24,13 +24,20 @@ create table if not exists centre_distance
 )
 stored as orc;
 
-insert into centre_distance select business_id, city, distance, stars, case
-	when distance > 15 then '(15,...)'
-	when distance > 10 then'(10,15]'
-	when distance > 7 then'(7,10]'
-	when distance > 5 then '(5,7]'
-	when distance > 3 then'(3,5]'
-	when distance > 1 then'(1,3]'
-	when distance > 0 then '[0,1]'
-else null
+insert into centre_distance 
+select 
+    business_id, 
+    city, 
+    distance, 
+    stars, 
+    case
+        when distance > 15 then '(15,...)'
+        when distance > 10 then'(10,15]'
+        when distance > 7 then'(7,10]'
+        when distance > 5 then '(5,7]'
+        when distance > 3 then'(3,5]'
+        when distance > 1 then'(1,3]'
+        when distance > 0 then '[0,1]'
+        else 
+            null
 end from distance;
