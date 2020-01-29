@@ -69,8 +69,9 @@ def save_fixed_dataset(path, fixed_dataset, fs: InsecureClient):
     print('Saving fixed dataset to {}'.format(path))
     strData = []
     for obj in fixed_dataset:
-        strData.append(dumps(obj))
-    fs.write(path, encoding='utf-8', data=(dumps(x) for x in fixed_dataset), overwrite=True)
+        strData.append(dumps(obj, sort_keys=True))
+    fs.delete(path)
+    fs.write(path, encoding='utf-8', data=(dumps(x) for x in fixed_dataset))
     # with open(path, "a+", encoding='utf-8') as text_file:
     #     text_file.write(os.linesep.join(strData))
     

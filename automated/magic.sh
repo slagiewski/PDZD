@@ -11,15 +11,15 @@ echo "SCRIPT_DIR: '$SCRIPT_DIR'"
 COMPOSE_FILE="$SCRIPT_DIR/docker-compose.yaml"
 
 # verify config
-grep HOST_DATASET_PATH "$SCRIPT_DIR/.env"
+# grep HOST_DATASET_PATH "$SCRIPT_DIR/.env"
 
-read -p "Is dataset path correct? (y/n) " -n 1 -r
-echo
+# read -p "Is dataset path correct? (y/n) " -n 1 -r
+# echo
 
-if [[ ! $REPLY =~ ^[Yy]$  ]]; then
-    echo "Please set the correct path in the .env file ('$SCRIPT_DIR/.env') and run this script again."
-    exit 2
-fi
+# if [[ ! $REPLY =~ ^[Yy]$  ]]; then
+#     echo "Please set the correct path in the .env file ('$SCRIPT_DIR/.env') and run this script again."
+#     exit 2
+# fi
 
 # RUN
 
@@ -51,6 +51,7 @@ docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -cp /user/DataSources/CS
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -rmr /user/Analysis2/MapReduce/output
 echo "Running MapReduce job..."
 docker-compose -f $COMPOSE_FILE exec namenode hadoop jar /host_jars/mapreduce/photosadvanced.jar PhotosAdvanced /user/Analysis2/MapReduce/input /user/Analysis2/MapReduce/output
+docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -mkdir -p /user/Analysis2/middle_set
 docker-compose -f $COMPOSE_FILE exec namenode hadoop fs -cp -f /user/Analysis2/MapReduce/output/part-r-00000 /user/Analysis2/middle_set/photos_count.csv
 
 docker-compose -f $COMPOSE_FILE --env-file "$SCRIPT_DIR/.env" run -d -eDRIVER_MODE=PHOTO driver python -u /app/main.py && docker-compose -f $COMPOSE_FILE logs -f --tail 10 driver

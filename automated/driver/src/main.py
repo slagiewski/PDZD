@@ -244,7 +244,7 @@ if __name__ == "__main__":
     print(f"mode: {mode}")
     if mode == 'IMPORT':
         step_00()
-        step_05()
+        # step_05()
         step_10()
         step_20()
         step_30()
